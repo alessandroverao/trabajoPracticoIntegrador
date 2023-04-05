@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font: 1em/1.85em 'Open Sans', "Arial", sans-serif;
+}
+
+#indice-personal {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    height: 720px;
+}
+
+.list-group hr {
+    width: 10%;
+    margin: auto;
+}
+
+.list-group-item:hover {
+    background-color: #A1CF2F;
+    font-weight: 900;
+}
+
+.list-group-item {
+
+    box-shadow: 0px 0px 0px 2px #A1CF2F inset;
+    border-radius: 25px;
+    margin-top: 5px;
+}
+
+/*--------------------------------------------------------*/
+.section-personal hr {
+    width: 100%;
+    margin-top: 10px;
+    border: 10px solid #4A93FE;
+    background: #4A93FE;
+    margin-bottom: 150px;
+    border-radius: 4px;
+}
+
+#social-personal a i {
+    color: black;
+    font-size: 50px;
+}
+
+
+#social-personal a i:hover {
+    color: #A1CF2F;
+}
+.banner-image-pablo {
+    background-image: url(/recursos/imagenes/foto-pablo.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+}
+
+.banner-image-ignacio {
+    background-image: url(/recursos/imagenes/foto-ignacio.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+}
+.banner-image-alessandro {
+    background-image: url(/recursos/imagenes/foto-alessandro.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+}
+.banner-image-matias {
+    background-image: url(/recursos/imagenes/foto-matias.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+}
+.banner-image-rodrigo {
+    background-image: url(/recursos/imagenes/foto-rodrigo.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+}
+.banner-image-leonela {
+    background-image: url(/recursos/imagenes/foto-leonela.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+}
+.banner-image-juan {
+    background-image: url(/recursos/imagenes/foto-juan.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+}
+
+@media(max-width:991px) {
+    .section-personal hr {
+        visibility: hidden;
+    }
+
+    .banner-image-pablo {
+        background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(/recursos/imagenes/foto-pablo.png);
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: contain;
+    }
+
+    .banner-image-ignacio {
+        background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(/recursos/imagenes/foto-ignacio.png);
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: contain;
+    }
+    .banner-image-alessandro {
+        background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(/recursos/imagenes/foto-alessandro.png);
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: contain;
+    }
+    .banner-image-matias {
+        background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(/recursos/imagenes/foto-matias.png);
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: contain;
+    }
+    .banner-image-rodrigo {
+        background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(/recursos/imagenes/foto-rodrigo.png);
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: contain;
+    }
+    .banner-image-leonela {
+        background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(/recursos/imagenes/foto-leonela.png);
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: contain;
+    }
+    .banner-image-juan {
+        background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(/recursos/imagenes/foto-juan.png);
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: contain;
+    }
+}

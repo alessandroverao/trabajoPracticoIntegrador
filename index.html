@@ -12,50 +12,374 @@
         integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
         crossorigin="anonymous"></script>
     <!--fin bootstrap-->
+    <!--hoja de estilos-->
+    <link rel="stylesheet" href="/css/estilosNosotros.css">
+    <!--hoja de estilos-->
     <!--iconos bootstrap-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <!--fin iconos bootstrap-->
     <!--JQuery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!--Fin JQuery-->
-    <title>Trabajo Práctico Integrador</title>
+    <link rel="shortcut icon" href="/recursos/imagenes/icon.png" type="image/x-icon">
+    <title>FrutaFina S.A. - Arándanos y Cerezas</title>
 </head>
 
 <body>
     <!--comienza navbar-->
     <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Logo</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="container">
+            <a class="navbar-brand" href="/index.html" id="letra-logo"><img src="/recursos/imagenes/logo-menu.png"
+                    id="logo-menu">FrutaFina</a>
+            <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation" id="boton-desplegar">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Presentación de la Organización</a>
+                        <a class="nav-link active" aria-current="page" href="/index.html">Nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Presentación Personal</a>
+                        <a class="nav-link" href="/html/personal.html">Personal</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Formulario de Contacto</a>
+                        <a class="nav-link" href="#!">Contacto</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            Formulario de un Proceso
+                            Procesos
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Cotización</a></li>
-                            <li><a class="dropdown-item" href="#">Reclamo</a></li>
+                            <li><a class="dropdown-item" href="/html/cotizacion.html">Cotización</a></li>
+                            <li><a class="dropdown-item" href="/html/reclamo.html">Reclamo</a></li>
                         </ul>
                     </li>
                 </ul>
+                <div class="nav" id="social-nav">
+                    <a class="nav-link" href="https://www.facebook.com" target="_blank"><i
+                            class="bi bi-facebook"></i></a>
+                    <a class="nav-link" href="https://www.instagram.com" target="_blank"><i
+                            class="bi bi-instagram"></i></a>
+                    <a class="nav-link" href="https://www.twitter.com" target="_blank"><i class="bi bi-twitter"></i></a>
+                </div>
             </div>
         </div>
     </nav>
     <!--fin navbar-->
+    <!--carrusel nav-->
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="5000">
+                <img src="/recursos/imagenes/bg-chacra-inicio.jpg" class="d-block w-100">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>BIENVENIDO</h3>
+                    <h1>De Argentina al mundo</h1>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+                <img src="/recursos/imagenes/bg-arandanos.jpg" class="d-block w-100">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Cerezas y Arándanos</h1>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+                <img src="/recursos/imagenes/bg-cerezas.jpg" class="d-block w-100">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Extra Sabor</h1>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+                <img src="/recursos/imagenes/bg-arandanos-dos.jpg" class="d-block w-100">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Extra Calidad</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- fin carrusel nav-->
+    <!-- contenedor acerca de -->
+    <div class="container" id="nosotros">
+        <p class="fs-4 text-center">ACERCA DE</p>
+        <p class="fs-1 text-center">FRUTAFINA S.A.</p>
+        <hr class="border border-primary border-1 opacity-75">
+        <br>
+        <p class="text-start" id="texto-largo">Nos comprometemos con los estándares de seguridad alimentaria en brindar
+            las frutas más
+            frescas, seguras y sabrosas de la industria. <br>
+            <br>
+            Desde 2007, cosechando frutas maravillosas para compartirlas con todo el mundo. Fruta fresca, de calidad,
+            sabrosa y que en su recorrido se ha comprometido con el bienestar integral de quienes la trabajan y el
+            cuidado del medioambiente. Conoce nuestros productos procesados bajo altos estándares de inocuidad y
+            consistencia. <br>
+            <br>
+            Hemos hecho de la seguridad alimentaria el enfoque más importante del cultivo de nuestros productos. <br>
+            <br>
+            Creemos que la única forma de lograr un crecimiento sostenido en el mercado es asegurar una gestión
+            responsable en todos nuestros procesos. <br>
+            <br>
+            Apoyamos el desarrollo sostenible a través de políticas de responsabilidad social y buenas prácticas
+            agrícolas. <br>
+            <br>
+            Brindamos a nuestros empleados servicios educativos y de salud accesibles para promover un estilo de vida
+            más sostenible. <br>
+        </p>
+        <br>
+        <!--cards nuestros productos-->
+        <p class="fs-1 text-center">NUESTROS PRODUCTOS</p>
+        <hr class="border border-primary border-1 opacity-75">
+        <br>
+        <div class="card mb-3">
+            <img src="/recursos/imagenes/productos-arandano.jpg" class="card-img-top">
+            <div class="card-body">
+                <h3 class="card-title">ARÁNDANOS</h3>
+                <p class="card-text">Ofrecemos las más sorprendentes variedades de arándanos cosechadas en huertos
+                    de la
+                    zona centro y norte de Argentina.</p>
+            </div>
+        </div>
+        <div class="card text-end">
+            <div class="card-body">
+                <h3 class="card-title">CEREZAS</h3>
+                <p class="card-text">Nuestras cerezas se cosechan en los mejores suelos de la Patagonia Argentina.
+                </p>
+            </div>
+            <img src="/recursos/imagenes/productos-cereza.jpg" class="card-img-bottom">
+        </div>
+        <!--fin cards nuestros productos-->
+        <br>
+        <br>
+        <!--linea del tiempo-->
+        <p class="fs-1 text-center">FRUTAFINA EN EL TIEMPO</p>
+        <hr class="border border-primary border-1 opacity-75">
+        <br>
+        <section style="background-color: #F0F2F5;">
+            <div class="container py-5">
+                <div class="main-timeline-2">
+                    <div class="timeline-2 left-2">
+                        <div class="card">
+                            <img src="/recursos/imagenes/linea-de-tiempo-dos.jpg" class="card-img-top">
+                            <div class="card-body p-4">
+                                <h4 class="fw-bold mb-4">Fundación de la empresa</h4>
+                                <p class="text-muted mb-4"><i class="far fa-clock" aria-hidden="true"></i> 2007</p>
+                                <p class="mb-0">Desde el año 2007, somos una de las compañías agroindustriales
+                                    argentinas que se encuentra íntegramente dedicada al mercado de frutas finas,
+                                    poniendo énfasis en los cultivos de arándanos, cerezas, peras y manzanas de alta
+                                    calidad como en su producción y posterior comercialización. Nuestros Ingenieros
+                                    Agrónomos seleccionaron cuidadosamente las mejores y más recientes variedades
+                                    provenientes de todas partes del mundo, de calidad premium y con un alto potencial
+                                    productivo, se adaptaron exitosamente a nuestros fructuosos suelos y condiciones
+                                    climáticas, dando como resultado el cultivo de plantas de última generación
+                                    genética, con excelentes condiciones de firmeza, calibre, sabor y vida postcosecha
+                                    de la fruta.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-2 right-2">
+                        <div class="card">
+                            <img src="/recursos/imagenes/linea-de-tiempo-tres.jpg" class="card-img-top">
+                            <div class="card-body p-4">
+                                <h4 class="fw-bold mb-4">Valores</h4>
+                                <p class="text-muted mb-4"><i class="far fa-clock" aria-hidden="true"></i> 2014</p>
+                                <p class="mb-0">Hemos implementado nuestro Código de Conducta corporativo siguiendo la
+                                    firme convicción de que el progreso sostenible y el éxito en nuestras operaciones se
+                                    logran solo a través del compromiso diario de las personas con los valores de
+                                    honestidad, integridad, esfuerzo y trabajo en equipo.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-2 left-2">
+                        <div class="card">
+                            <img src="/recursos/imagenes/linea-de-tiempo-uno.jpg" class="card-img-top">
+                            <div class="card-body p-4">
+                                <h4 class="fw-bold mb-4">Fusión</h4>
+                                <p class="text-muted mb-4"><i class="far fa-clock" aria-hidden="true"></i> 2019</p>
+                                <p class="mb-0">Las empresas pioneras FrutaFina de Entre Ríos, Frutero S.A.,
+                                    Cerecitas S.A. y Frutas del charco S.A. se fusionan en uno de los negocios
+                                    frutícolas más grandes del mundo, todos bajo un mismo y renombrado nombre:
+                                    FrutaFina S.A.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-2 right-2">
+                        <div class="card">
+                            <img src="/recursos/imagenes/linea-de-tiempo-cuatro.jpg" class="card-img-top">
+                            <div class="card-body p-4">
+                                <h4 class="fw-bold mb-4">Comercialización Exclusiva</h4>
+                                <p class="text-muted mb-4"><i class="far fa-clock" aria-hidden="true"></i>2020</p>
+                                <p class="mb-0">FrutaFina S.A. obtiene la licencia para la producción y
+                                    comercialización exclusiva en el país de un conjunto de variedades de arándanos
+                                    desarrolladas por el vivero australiano Mountain Blue Orchards (MBO), inventor entre
+                                    otras especies de la mundialmente conocida Eureka. Comienza así un importante camino
+                                    de reconversión varietal que incluye a su vez tecnología relacionada con la
+                                    nutrición y el riego basado en los principios de la hidroponía.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- fin linea del tiempo-->
+        <!-- dulzura y calidad-->
+        <p class="fs-4 text-center">LO QUE OFRECEMOS</p>
+        <p class="fs-1 text-center">NADIE NOS IGUALA</p>
+        <hr class="border border-primary border-1 opacity-75">
+        <br>
+        <br>
+        <div class="container d-flex align-items-center justify-content-center position-relative flex-wrap"
+            id="container-dul-cal">
+            <div class="card d-flex position-relative flex-column" id="card-dul-cal">
+                <div class='imgContainer img-fluid'>
+                    <img src='/recursos/imagenes/slider-arandanos.jpg'>
+                </div>
+                <div class="content" id="container-dul-cal">
+                    <h2>ARÁNDANOS</h2>
+                    <p>323 Hectáreas en Salta y Entre Ríos - Argentina</p>
+                </div>
+            </div>
+            <div class="card d-flex position-relative flex-column" id="card-dul-cal">
+                <div class='imgContainer img-fluid'>
+                    <img src='/recursos/imagenes/slider-cerezas.jpg'>
+                </div>
+                <div class="content">
+                    <h2>CEREZAS</h2>
+                    <p>285 Hectáreas en Chubut y Río Negro - Argentina</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">EXTRA SABOR</h5>
+                        <p class="card-text">La combinación climática beneficia la relación azúcar / ácido, dulzor,
+                            consistencia y firmeza de la fruta. <br>
+                            El ambiente combinado con las prácticas agrícolas ejercidas mejora la salud de nuestras
+                            frutas. <br>
+                            La nueva genética mejora la ventana de cosecha para aprovechar el sabor de la fruta y
+                            mejorar la experiencia para los consumidores. <br> <br> </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">EXTRA CALIDAD</h5>
+                        <p class="card-text">Pioneros en reemplazo varietal: constitución genética, viveros de
+                            vanguardia, desarrollo de variedades y soporte técnico. <br>
+                            Inversiones para una calidad responsable: sistemas de riego por goteo y aspersores, redes
+                            antigranizo, reservorios naturales de agua. <br>
+                            Equipos de última generación: plantas de empaque de modelos, modernas líneas de
+                            procesamiento, calibradores Unitec para selección óptica por color, tamaño y defecto.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- fin dulzura y calidad-->
+    </div>
+    <!-- fin contenedor acerca de -->
+    <!-- boton arriba -->
+    <button type="button" class="btn btn-success btn-floating btn-lg position-fixed" id="btn-back-to-top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+    <!-- fin boton arriba -->
+    <!-- pie de página-->
+    <footer class="text-center text-lg-start bg-dark" id="footer">
+        <!-- Section: Social media -->
+        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+
+        </section>
+        <!-- Section: Social media -->
+        <!-- Section: Links  -->
+        <section>
+            <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            <i class="bi bi-gem"></i> FrutaFina
+                        </h6>
+                        <p>EXTRA SABOR Y EXTRA CALIDAD</p>
+                        <a href="/index.html" style="height: 35px; width: 35px;"> <img href="/index.html"
+                                src="/recursos/imagenes/logo-menu.png" class="img-fluid"></a>
+                        <br>
+                        <br>
+                        <div>
+                            <p>SIGANOS:</p>
+                            <a href="https://www.facebook.com" style="font-size: 35px;"><i
+                                    class="bi bi-facebook"></i></a>
+                            <a href="https://www.instagram.com" style="font-size: 35px;"><i
+                                    class="bi bi-instagram"></i></a>
+                            <a href="https://www.twitter.com" style="font-size: 35px;"><i class="bi bi-twitter"></i></a>
+                        </div>
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            MAPA DEL SITIO
+                        </h6>
+                        <p>
+                            <a href="/index.html" class="text-reset" id="link-footer">Nosotros</a>
+                        </p>
+                        <p>
+                            <a href="/html/personal.html" class="text-reset" id="link-footer">Personal</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset" id="link-footer">Contacto</a>
+                        </p>
+                        <p>
+                            <a>Procesos
+                                <ul>
+                                    <li class="list-unstyled">
+                                        <a href="/html/cotizacion.html" class="text-reset"
+                                            id="link-footer">Cotización</a>
+                                    </li>
+                                    <li class="list-unstyled">
+                                        <a href="/html/reclamo.html" class="text-reset" id="link-footer">Reclamo</a>
+                                    </li>
+                                </ul>
+                            </a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
+                        <p><i class="bi bi-house-fill"></i>
+                            Buenos Aires:
+                            Asunción 1356 P.15 <br>
+                            CABA - C1003ABX (ARG)</p>
+                        <p>
+                            <i class="bi bi-envelope-fill"></i>
+                            contacto@frutafina.com
+                        </p>
+                        <p><i class="bi bi-telephone-fill"></i> +54 11 4872 6100</p>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+        </section>
+        <!-- Section: Links  -->
+
+        <!-- Copyright -->
+        <div class="text-center p-4 border-top" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2023 Todos los derechos reservados.
+            <a class="text-reset fw-bold" href="/index.html" id="copyright">FrutaFina S.A.</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- fin pue de página-->
+    <!-- enlace js -->
+    <script src="/js/funcionesNosotros.js"></script>
+    <!-- fin enlace js-->
 </body>
 
 </html>

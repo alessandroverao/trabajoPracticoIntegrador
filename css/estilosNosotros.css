@@ -1,0 +1,331 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: 1em/1.85em 'Open Sans', "Arial", sans-serif;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: transparent;
+  /*color de la barra de fondo*/
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #A1CF2F;
+  /*color del manejador*/
+}
+
+*::-webkit-scrollbar {
+  width: 20px;
+  /*ancho del scroll vertical*/
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/*-------menu-------*/
+.navbar {
+  position: fixed;
+  padding: 0;
+}
+
+.navbar a {
+  font-size: 16px;
+}
+
+.bi {
+  color: white;
+}
+
+.bi:hover,
+#letra-logo:hover,
+.nav-link:hover,
+.dropdown-item:hover {
+  color: #A1CF2F;
+  transition-delay: 0s
+}
+
+/*-------fin menu-------*/
+/*-------carrusel-------*/
+#carouselExampleSlidesOnly {
+  position: relative;
+  margin-top: 44.49px;
+}
+
+.carousel-inner {
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 449px;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.carousel-item {
+  transition: transform 2.6s ease-in-out;
+}
+
+.carousel-fade .active.carousel-item-start,
+.carousel-fade .active.carousel-item-end {
+  transition: opacity 0s 2.6s;
+}
+
+.carousel-caption h1 {
+  text-transform: uppercase;
+}
+
+/*-------fin carrusel-------*/
+/*-------nosotros-------*/
+#nosotros {
+  position: relative;
+  margin-top: 75px;
+  padding: 10px;
+}
+
+#texto-largo {
+  margin: auto;
+  width: 75%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 800px) {
+  #nosotros {
+    padding: 0px;
+  }
+
+  #texto-largo {
+    margin: none;
+    width: 100%;
+    padding: 0xp;
+  }
+}
+
+.fs-4 {
+  color: #A1CF2F;
+}
+
+.fs-1 {
+  line-height: 1em;
+}
+
+#nosotros hr {
+  width: 10%;
+  margin: auto;
+}
+
+/*-------fin nosotros-------*/
+/*-------linea del tiempo-------*/
+/* La línea de tiempo real (la regla vertical) */
+.main-timeline-2 {
+  position: relative;
+}
+
+/* La línea de tiempo real (la regla vertical) */
+.main-timeline-2::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  background-color: #A1CF2F;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+/* Contenedor alrededor del contenido */
+.timeline-2 {
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+/* Los círculos en la línea de tiempo */
+.timeline-2::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -11px;
+  background-color: #A1CF2F;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Coloca el contenedor a la izquierda */
+.left-2 {
+  padding: 0px 40px 20px 0px;
+  left: 0;
+}
+
+/* Coloca el contenedor a la derecha */
+.right-2 {
+  padding: 0px 0px 20px 40px;
+  left: 50%;
+}
+
+/* Agregar flechas al contenedor izquierdo (apuntando a la derecha) */
+.left-2::before {
+  content: " ";
+  position: absolute;
+  top: 18px;
+  z-index: 1;
+  right: 30px;
+  border: medium solid white;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent white;
+}
+
+/* Agregar flechas al contenedor derecho (apuntando a la izquierda) */
+.right-2::before {
+  content: " ";
+  position: absolute;
+  top: 18px;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+
+/* Fijar el círculo para contenedores en el lado derecho */
+.right-2::after {
+  left: -14px;
+}
+
+/* Consultas de medios: línea de tiempo receptiva en pantallas de menos de 1024px de ancho */
+@media screen and (max-width: 1024px) {
+
+  /* Coloca la línea de tiempo a la izquierda */
+  .main-timeline-2::after {
+    left: 31px;
+  }
+
+  /* Contenedores de ancho completo */
+  .timeline-2 {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+
+  /* Asegúrate de que todas las flechas apunten hacia la izquierda */
+  .timeline-2::before {
+    left: 60px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+  }
+
+  /* Asegúrate de que todos los círculos estén en el mismo lugar */
+  .left-2::after,
+  .right-2::after {
+    left: 18px;
+  }
+
+  .left-2::before {
+    right: auto;
+  }
+
+  /* Hacer que todos los contenedores de la derecha se comporten como los de la izquierda */
+  .right-2 {
+    left: 0%;
+  }
+}
+
+/*-------fin linea del tiempo-------*/
+/*------- dulzura y calidad-------*/
+#container-dul-cal #card-dul-cal {
+  max-width: 300px;
+  height: 215px;
+  margin: 30px 10px;
+  padding: 20px 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  transition: 0.3s ease-in-out;
+}
+
+#container-dul-cal #card-dul-cal:hover {
+  height: 450px;
+}
+
+#container-dul-cal #card-dul-cal .imgContainer {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  top: -50px;
+  left: 10px;
+  z-index: 1;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+#container-dul-cal #card-dul-cal .imgContainer img {
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+#container-dul-cal #card-dul-cal .content {
+  position: relative;
+  margin-top: -140px;
+  padding: 10px 15px;
+  text-align: center;
+  color: #111;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease-in-out;
+}
+
+#container-dul-cal #card-dul-cal:hover .content {
+  visibility: visible;
+  opacity: 1;
+  margin-top: -40px;
+  transition-delay: 0.3s;
+}
+
+@media (max-width: 330px) {
+  #container-dul-cal #card-dul-cal .imgContainer {
+    left: -2px;
+  }
+}
+
+/*------- fin dulzura y calidad-------*/
+/*------- boton arriba -------*/
+#btn-back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  z-index: 2;
+  border-radius: 50%;
+  background-color: #2B3035;
+  border: none;
+}
+
+#btn-back-to-top .bi {
+  color: white;
+}
+
+#btn-back-to-top:hover {
+  transform: scale(1.2);
+}
+
+/*------- fin boton arriba-------*/
+/*------- pie de página-------*/
+#link-footer,
+#copyright {
+  text-decoration: none;
+}
+
+#footer {
+  color: white;
+}
+
+.text-reset:hover {
+  color: #A1CF2F;
+  transition-delay: 0s
+}
+
+/*------- fin pie de página-------*/
