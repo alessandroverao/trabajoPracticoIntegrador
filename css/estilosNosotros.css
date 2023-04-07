@@ -34,16 +34,28 @@ body {
   font-size: 16px;
 }
 
-.bi {
+.navbar .bi {
   color: white;
 }
 
-.bi:hover,
+.navbar .bi:hover,
 #letra-logo:hover,
-.nav-link:hover,
-.dropdown-item:hover {
+.navbar .nav-link:hover,
+.navbar .dropdown-item:hover {
   color: #A1CF2F;
   transition-delay: 0s
+}
+
+.navbar a.active {
+  color: #A1CF2F !important;
+}
+
+.navbar .dropdown .active {
+  background-color: #212529 !important;
+}
+
+.navbar .dropdown-item:hover {
+  background-color: #212529 !important;
 }
 
 /*-------fin menu-------*/
@@ -298,7 +310,7 @@ body {
   bottom: 20px;
   right: 20px;
   display: none;
-  z-index: 2;
+  z-index: 5;
   border-radius: 50%;
   background-color: #2B3035;
   border: none;
@@ -314,18 +326,57 @@ body {
 
 /*------- fin boton arriba-------*/
 /*------- pie de página-------*/
-#link-footer,
-#copyright {
-  text-decoration: none;
+footer .bi-facebook,
+footer .bi-instagram,
+footer .bi-twitter {
+  font-size: 25px;
 }
 
-#footer {
-  color: white;
+footer .text-white {
+  text-decoration: none !important;
 }
 
-.text-reset:hover {
-  color: #A1CF2F;
-  transition-delay: 0s
+footer .text-white:hover,
+footer h6[FrutaFina] {
+  color: #A1CF2F !important;
+}
+
+footer .bi-star-fill {
+  color: yellow;
+  letter-spacing: 5px;
 }
 
 /*------- fin pie de página-------*/
+/*------- modal contacto -------*/
+.modal-header p {
+  cursor: default;
+}
+
+.form-group .input-group,
+.form-group input,
+.form-group textarea {
+  border: 1px solid #A1CF2F;
+  border-radius: 5px;
+}
+
+.form-group .input-group,
+.form-group .input-group-text {
+  background-color: #A1CF2F;
+  border: none;
+}
+
+.form-group .input-group-text i {
+  font-size: 24px;
+}
+
+.form-control:focus {
+  border-color: #A1CF2F;
+  box-shadow: 0 0 0 1px #A1CF2F;
+  outline-color: #A1CF2F;
+}
+
+.form-group .input-group:hover {
+  box-shadow: 0 0 0 3px #A1CF2F;
+}
+
+/*------- fin modal contacto -------*/
