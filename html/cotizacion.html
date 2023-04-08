@@ -80,9 +80,12 @@
     <!-- fin card-banner-cotización -->
     <!-- contenedor-cotización -->
     <div class="container" id="cotizacion">
-        <h4 class="card-title fs-4 text-center">tendrás un documento PDF</h4>
+        <h4 class="card-title fs-4 text-center">¿queres saber nuestros precios?</h4>
         <p class="card-text fs-1 text-center">Crea tu cotización online</p>
+        <p class="card-text fs-5 text-center text-uppercase">tendrás un documento PDF de lo cotizado</p>
         <hr class="border border-primary border-1 opacity-75">
+        <img src="/recursos/imagenes/lineal-cereza.png" class="imagen-izquierda">
+        <img src="/recursos/imagenes/lineal-arandano.png" class="imagen-derecha">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-8 col-lg-6 pb-5">
@@ -90,8 +93,7 @@
                     <form class="form-cotizacion">
                         <div class="card">
                             <div class="card-header p-0">
-                                <div class="bg-info text-dark text-center py-2 img-header-cotizacion">
-
+                                <div class=" text-dark text-center py-2 img-header-cotizacion">
                                     <p class="fs-2">¡Cotiza tu producto!</i></p>
                                 </div>
                             </div>
@@ -101,9 +103,15 @@
                                 <div class="form-group">
                                     <div class="input-group mb-2">
                                         <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="bi bi-egg"></i></div>
+                                            <div class="input-group-text">
+                                                <!-- Agrega un ID a cada imagen para poder manipularlas con JavaScript -->
+                                                <img id="frutafina-icon" src="/recursos/imagenes/lineal-frutafina-icon.png">
+                                                <img id="cereza-icon" src="/recursos/imagenes/lineal-cereza-icon.png">
+                                                <img id="arandano-icon" src="/recursos/imagenes/lineal-arandano-icon.png">
+                                            </div>
                                         </div>
-                                        <select class="form-control" id="select-producto" name="producto" required>
+                                        <!-- Agrega un evento onchange al campo de selección para detectar cuándo el usuario cambia la opción seleccionada -->
+                                        <select class="form-control" id="select-producto" name="producto" required onchange="updateProductIcon()">
                                             <option selected disabled>Seleccione un producto</option>
                                             <option value="arandano">Arándanos</option>
                                             <option value="cereza">Cerezas</option>
@@ -115,10 +123,10 @@
                                 <div class="form-group">
                                     <div class="input-group mb-2">
                                         <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="bi bi-virus"></i></div>
+                                            <div class="input-group-text"><img src="/recursos/imagenes/lineal-variedad.png"></div>
                                         </div>
                                         <select class="form-control" id="select-variedad" name="variedad" required>
-                                            <option selected disabled>Seleccione una variedad</option>
+                                            <option selected disabled>Seleccione un tipo de variedad</option>
                                         </select>
                                     </div>
                                 </div>
@@ -127,7 +135,7 @@
                                 <div class="form-group">
                                     <div class="input-group mb-2">
                                         <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="bi bi-box"></i></div>
+                                            <div class="input-group-text"><img src="/recursos/imagenes/lineal-caja-icon.png"></div>
                                         </div>
                                         <select class="form-control" id="select-tipo-caja" name="tipo-caja" required>
                                             <option selected disabled>Seleccione un tipo de caja</option>
@@ -139,14 +147,14 @@
                                 <div class="form-group">
                                     <div class="input-group mb-2">
                                         <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="bi bi-boxes"></i></div>
+                                            <div class="input-group-text"><img src="/recursos/imagenes/lineal-cajas-icon.png"></div>
                                         </div>
                                         <input type="number" class="form-control" id="cantidad-cajas"
                                             name="cantidad-cajas" placeholder="Cantidad de cajas" required>
                                     </div>
                                 </div>
                                 <!-- fin input cantidad de cajas-->
-                                <div id="error-message" style="display: none; color: red;"></div>
+                                <div id="error-message"></div>
                                 <div class="text-center">
                                     <input type="button" value="Cotizar" class="btn btn-success btn-block py-2">
                                     <input type="button" value="Descargar PDF" class="btn btn-danger btn-block py-2"
@@ -154,6 +162,7 @@
                                     <input type="button" value="Nueva cotización" class="btn btn-primary btn-block py-2"
                                         style="display:none">
                                 </div>
+                                <div id="resumen"></div>
                             </div>
                         </div>
                     </form>
@@ -173,7 +182,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header text-center"
-                    style="background-image: url('/recursos/imagenes/banner-modal-contacto.jpg');">
+                    style="background-image: linear-gradient(to bottom, #A1CF2F, #b8e986);">
                     <div class="text-black w-100 py-2 text-uppercase">
                         <p class="fs-5 text-center">Hablemos de cerezas y arándanos</p>
                         <p class="fs-2 text-center">¡Envíanos un mensaje!</p>

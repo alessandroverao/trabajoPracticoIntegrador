@@ -58,7 +58,9 @@
 }
 
 .form-cotizacion .img-header-cotizacion {
-    background-image: url('/recursos/imagenes/banner-modal-contacto.jpg');
+    background-image: linear-gradient(to bottom, #A1CF2F, #b8e986);
+
+ /*-   background-image: url('/recursos/imagenes/banner-modal-contacto.jpg');--*/
     border-radius: 3px 3px 0px 0px;
     text-transform: uppercase;
 }
@@ -79,11 +81,19 @@
 .form-cotizacion .form-group .input-group,
 .form-cotizacion .form-group .input-group-text {
     background-color: #A1CF2F;
+    margin-top: 2px;
     border: none;
 }
 
-.form-cotizacion .form-group .input-group-text i {
-    font-size: 24px;
+.form-cotizacion .form-group .form-control {
+    height: 60px;
+}
+
+.form-cotizacion .form-group .input-group-text img {
+    transform: scale(1.6);
+    margin-top: 50%;
+    width: 24px;
+    height: 24px;
 }
 
 .form-cotizacion .form-control:focus {
@@ -106,11 +116,55 @@
 }
 
 @keyframes highlight {
-    from { opacity: 1; }
-    to { opacity: 0.5; }
-  }
-  
-  #error-message.highlight {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0.5;
+    }
+}
+
+#error-message.highlight {
     animation: highlight 1s ease-in-out;
-  }
+}
+#error-message{
+    display: none; 
+    color: red;
+    font-weight: 600;
+}
+.input-error {
+    border: 5px solid red !important;
+}
+
 /*------- form cotizacion -------*/
+/*------- imagenes cotizacion -------*/
+.imagen-izquierda,
+.imagen-derecha {
+    position: absolute;
+    top: 200px;
+    height: 150px;
+    width: 150px;
+}
+
+.imagen-izquierda {
+    left: 0;
+}
+
+.imagen-derecha {
+    right: 0;
+}
+
+@media (max-width: 767px) {
+
+    .imagen-izquierda,
+    .imagen-derecha {
+        position: static;
+        display: block;
+        max-width: 50%;
+        height: auto;
+        margin: 20px auto;
+    }
+}
+
+/*------- fin imagenes cotizacion -------*/

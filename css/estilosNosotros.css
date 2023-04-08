@@ -367,6 +367,7 @@ footer .bi-star-fill {
 
 .form-group .input-group-text i {
   font-size: 24px;
+  transform: scale(1.5);
 }
 
 .form-control:focus {
