@@ -404,11 +404,78 @@ body[data-bs-theme="dark"] .section-personal i {
 body[data-bs-theme="dark"] .section-personal i:hover {
   color: #A1CF2F !important;
 }
-body[data-bs-theme="dark"] #btn-back-to-top{
-background-color: #A1CF2F;
+
+body[data-bs-theme="dark"] #btn-back-to-top {
+  background-color: #A1CF2F;
 }
-body[data-bs-theme="dark"] #btn-back-to-top i{
+
+body[data-bs-theme="dark"] #btn-back-to-top i {
   color: #212529;
+}
+
+/* cambiar el color de la segunda capa al momento de pasar a modo oscuro y con resolucion menor a 991px - En el RGBA el valor 1 al final indica que el color es completamente opaco. */
+@media (max-width: 991px) {
+  body[data-bs-theme="dark"] .section-personal .banner-image-pablo {
+    background: linear-gradient(rgba(33, 37, 41, 0.8),
+        rgba(33, 37, 41, 0.8)),
+      url(/recursos/imagenes/foto-pablo.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
   }
 
+  body[data-bs-theme="dark"] .section-personal .banner-image-ignacio {
+    background: linear-gradient(rgba(33, 37, 41, 0.8),
+        rgba(33, 37, 41, 0.8)),
+      url(/recursos/imagenes/foto-ignacio.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+  }
+
+  body[data-bs-theme="dark"] .section-personal .banner-image-alessandro {
+    background: linear-gradient(rgba(33, 37, 41, 0.8),
+        rgba(33, 37, 41, 0.8)),
+      url(/recursos/imagenes/foto-alessandro.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+  }
+
+  body[data-bs-theme="dark"] .section-personal .banner-image-matias {
+    background: linear-gradient(rgba(33, 37, 41, 0.8),
+        rgba(33, 37, 41, 0.8)),
+      url(/recursos/imagenes/foto-matias.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+  }
+
+  body[data-bs-theme="dark"] .section-personal .banner-image-rodrigo {
+    background: linear-gradient(rgba(33, 37, 41, 0.8),
+        rgba(33, 37, 41, 0.8)),
+      url(/recursos/imagenes/foto-rodrigo.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+  }
+
+  body[data-bs-theme="dark"] .section-personal .banner-image-leonela {
+    background: linear-gradient(rgba(33, 37, 41, 0.8),
+        rgba(33, 37, 41, 0.8)),
+      url(/recursos/imagenes/foto-leonela.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+  }
+
+  body[data-bs-theme="dark"] .section-personal .banner-image-juan {
+    background: linear-gradient(rgba(33, 37, 41, 0.8),
+        rgba(33, 37, 41, 0.8)),
+      url(/recursos/imagenes/foto-juan.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+  }
+}
 /*------- fin tema oscuro -------*/
