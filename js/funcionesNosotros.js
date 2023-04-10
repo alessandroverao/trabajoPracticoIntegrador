@@ -49,7 +49,7 @@ inputs.forEach(input => {
 // validar input nombre que solo se ingresen letras y espacios y cantidad de letras ingresadas
 let inputNombre = document.querySelector('#nombre');
 let regex = /^[a-zA-Z\s]*$/;
-let minLength = 5;
+let minLength = 3;
 let maxLength = 100;
 
 inputNombre.addEventListener('input', function () {
@@ -119,7 +119,6 @@ inputMensaje = document.querySelector('#mensaje');
 let minLengthDos = 4;
 let maxLengthDos = 500;
 let malasPalabras = ['lrpmqtphdrmp', 'river plate', 'river', 'trabajar el fin de semana', 'culo'];
-
 inputMensaje.addEventListener('input', function () {
   if (inputMensaje.value.length < minLengthDos) {
     inputMensaje.setCustomValidity(`El mensaje debe tener al menos ${minLengthDos} caracteres.`);
@@ -131,3 +130,39 @@ inputMensaje.addEventListener('input', function () {
     inputMensaje.setCustomValidity('');
   }
 });
+// boton modo oscuro - y modo claro
+const temaOscuro = () => {
+  document.querySelector("body").setAttribute("data-bs-theme", "dark");
+  document.querySelector("#boton-modo-oscuro").setAttribute("class", "bi bi-sun");
+  localStorage.setItem("tema", "oscuro"); // Guardar el tema en el almacenamiento local
+  // Verificar si estamos en la página cotizacion.html
+  if (location.pathname.endsWith("cotizacion.html")) {
+    // Cambiar las imágenes cotizacion
+    document.querySelector(".imagen-izquierda").src = "/recursos/imagenes/lineal-cereza-blanca.png";
+    document.querySelector(".imagen-derecha").src = "/recursos/imagenes/lineal-arandano-blanco.png";
+  }
+}
+const temaClaro = () => {
+  document.querySelector("body").setAttribute("data-bs-theme", "light");
+  document.querySelector("#boton-modo-oscuro").setAttribute("class", "bi bi-moon-stars");
+  localStorage.setItem("tema", "claro"); // Guardar el tema en el almacenamiento local
+  // Verificar si estamos en la página cotizacion.html
+  if (location.pathname.endsWith("cotizacion.html")) {
+    // Cambiar las imágenes
+    document.querySelector(".imagen-izquierda").src = "/recursos/imagenes/lineal-cereza.png";
+    document.querySelector(".imagen-derecha").src = "/recursos/imagenes/lineal-arandano.png";
+  }
+}
+const cambiarTema = () => {
+  document.querySelector("body").getAttribute("data-bs-theme") === "light" ?
+    temaOscuro() : temaClaro();
+}
+// Agregar controlador de eventos para el evento click en el elemento a del menu (modo oscuro)
+document.querySelector(".nav-link[title='Modo oscuro']").addEventListener("click", cambiarTema);
+
+// Verificar el valor inicial del atributo data-bs-theme y el valor guardado en el almacenamiento local
+if (localStorage.getItem("tema") === "oscuro") {
+  temaOscuro();
+} else {
+  temaClaro();
+}

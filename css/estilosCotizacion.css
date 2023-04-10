@@ -40,9 +40,8 @@
     text-transform: uppercase;
 }
 
-#cotizacion .fs-1 {
+#cotizacion p .fs-1 {
     color: black;
-    text-transform: uppercase;
 }
 
 /*------- contenedor cotizacion -------*/

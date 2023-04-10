@@ -30,6 +30,10 @@ body {
   padding: 0;
 }
 
+.navbar .nav-link i {
+  cursor: pointer;
+}
+
 .navbar a {
   font-size: 16px;
 }
@@ -189,7 +193,7 @@ body {
   right: 30px;
   border: medium solid white;
   border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent white;
+  border-color: transparent transparent transparent #A1CF2F;
 }
 
 /* Agregar flechas al contenedor derecho (apuntando a la izquierda) */
@@ -201,7 +205,7 @@ body {
   left: 30px;
   border: medium solid white;
   border-width: 10px 10px 10px 0;
-  border-color: transparent white transparent transparent;
+  border-color: transparent #A1CF2F transparent transparent;
 }
 
 /* Fijar el círculo para contenedores en el lado derecho */
@@ -229,7 +233,7 @@ body {
     left: 60px;
     border: medium solid white;
     border-width: 10px 10px 10px 0;
-    border-color: transparent white transparent transparent;
+    border-color: transparent #A1CF2F transparent transparent;
   }
 
   /* Asegúrate de que todos los círculos estén en el mismo lugar */
@@ -381,3 +385,30 @@ footer .bi-star-fill {
 }
 
 /*------- fin modal contacto -------*/
+/*------- tema oscuro -------*/
+body[data-bs-theme="dark"] #carouselExampleSlidesOnly h1,
+body[data-bs-theme="dark"] #carouselExampleSlidesOnly h3,
+body[data-bs-theme="dark"] #container-dul-cal h2,
+body[data-bs-theme="dark"] #container-dul-cal p {
+  color: white;
+}
+
+body[data-bs-theme="dark"] #modalContacto i {
+  color: black;
+}
+
+body[data-bs-theme="dark"] .section-personal i {
+  color: white !important;
+}
+
+body[data-bs-theme="dark"] .section-personal i:hover {
+  color: #A1CF2F !important;
+}
+body[data-bs-theme="dark"] #btn-back-to-top{
+background-color: #A1CF2F;
+}
+body[data-bs-theme="dark"] #btn-back-to-top i{
+  color: #212529;
+  }
+
+/*------- fin tema oscuro -------*/

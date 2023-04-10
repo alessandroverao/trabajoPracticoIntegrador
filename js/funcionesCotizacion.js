@@ -135,9 +135,9 @@ const inputCantidadCajas = document.querySelector('#cantidad-cajas');
 const errorMessage = document.querySelector('#error-message');
 // Agrega un controlador de eventos para el evento keydown
 inputCantidadCajas.addEventListener('keydown', (event) => {
-    // Verifica si la tecla presionada es un punto o una coma
-    if (event.key === '.' || event.key === ',') {
-        // Cancela el evento para evitar que se ingrese el punto o la coma
+    // Verifica si la tecla presionada es un punto, una coma o una "e"
+    if (event.key === '.' || event.key === ',' || event.key === 'e' || event.key === '-') {
+        // Cancela el evento para evitar que se ingrese el punto, la coma o la "e"
         event.preventDefault();
     }
 });
@@ -186,12 +186,14 @@ document.querySelector('.btn-success').addEventListener('click', function () {
             totalCajas = preciosCajaCereza[tipoCaja] * cantidadCajas;
             total = totalProducto + totalCajas;
 
-            document.getElementById("resumen").innerHTML = `El precio por kg de la variedad ${variedad} de ${producto}s es $${preciosCereza[variedad]} 
-            y el tipo de caja es "${tipoCaja}", su precio por unidad es $${preciosCajaCereza[tipoCaja]}, fueron elegidas ${cantidadCajasParaMostrar.toLocaleString('de-DE')} caja/s. <br>
-            Total kg: ${totalKg.toLocaleString('de-DE')} <br>
-            Total Producto: $${totalProducto.toLocaleString('de-DE')} <br>
-            Total Cajas: $${totalCajas.toLocaleString('de-DE')} <br>
-            Total a Pagar: $${total.toLocaleString('de-DE')}`;
+            document.getElementById("resumen").innerHTML = `El precio por kg de la variedad <strong>${variedad}</strong> de <strong>${producto}s</strong> es 
+            <strong>$${preciosCereza[variedad].toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong> 
+            y el tipo de caja es "<strong>${tipoCaja}</strong>", su precio por unidad es <strong>$${preciosCajaCereza[tipoCaja].toLocaleString('de-DE')}</strong>, 
+            fueron elegidas <strong>${cantidadCajasParaMostrar.toLocaleString('de-DE')}</strong> caja/s. <br>
+            Total kg: <strong>${totalKg.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong> <br>
+            Total Producto: <strong>$${totalProducto.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong> <br>
+            Total Cajas: <strong>$${totalCajas.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong> <br>
+            Total a Pagar: <strong>$${total.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>`;
 
         } else if (producto === 'arandano') {
             totalKg = kgCajaArandano[tipoCaja] * cantidadCajas;
@@ -199,12 +201,14 @@ document.querySelector('.btn-success').addEventListener('click', function () {
             totalCajas = preciosCajaArandano[tipoCaja] * cantidadCajas;
             total = totalProducto + totalCajas;
 
-            document.getElementById("resumen").innerHTML = `El precio por kg de la variedad ${variedad} de ${producto}s es $${preciosArandano[variedad]} 
-            y el tipo de caja es ${tipoCaja}, su precio por unidad es $${preciosCajaArandano[tipoCaja]}, fueron elegidas ${cantidadCajasParaMostrar.toLocaleString('de-DE')} caja/s. <br>
-            Total kg: ${totalKg.toLocaleString('de-DE')} <br>
-            Total Producto: $${totalProducto.toLocaleString('de-DE')} <br>
-            Total Cajas: $${totalCajas.toLocaleString('de-DE')} <br>
-            Total a Pagar: $${total.toLocaleString('de-DE')}`;
+            document.getElementById("resumen").innerHTML = `El precio por kg de la variedad <strong>${variedad}</strong> de <strong>${producto}s</strong> es 
+            <strong>$${preciosArandano[variedad].toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong> 
+            y el tipo de caja es "<strong>${tipoCaja}</strong>", su precio por unidad es <strong>$${preciosCajaArandano[tipoCaja].toLocaleString('de-DE')}</strong>, 
+            fueron elegidas <strong>${cantidadCajasParaMostrar.toLocaleString('de-DE')}</strong> caja/s. <br>
+            Total kg: <strong>${totalKg.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong> <br>
+            Total Producto: <strong>$${totalProducto.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong> <br>
+            Total Cajas: <strong>$${totalCajas.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong> <br>
+            Total a Pagar: <strong>$${total.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>`;
 
         }
 
