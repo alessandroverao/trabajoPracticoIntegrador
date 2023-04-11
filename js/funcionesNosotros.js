@@ -197,4 +197,27 @@ $(document).ready(function () {
   } else {
     temaClaro();
   }
+
+  // agrega evento al boton del menu (cuando es pantalla pequeña) para que se enrrolle el menu cuando toco la pantalla fuera del menu
+  document.addEventListener('click', function (event) {
+    var navbar = document.querySelector('#navbarNav');
+    var isClickInside = navbar.contains(event.target);
+    if (!isClickInside && navbar.classList.contains('show')) {
+      navbar.classList.remove('show');
+    }
+  });
+
+  //agrega un evento de mouseover al elemento li con la clase dropdown. Cuando el mouse está sobre este elemento, se agrega la clase show al menú desplegable para abrirlo.
+  var dropdown = document.querySelector('.dropdown');
+  dropdown.addEventListener('mouseover', function (event) {
+    var dropdownMenu = this.querySelector('.dropdown-menu');
+    dropdownMenu.classList.add('show');
+  });
+
+  //agrega un evento de mouseout al elemento li con la clase dropdown. Cuando el mouse ya no está sobre este elemento, se elimina la clase show del menú desplegable para cerrarlo.
+  var dropdown = document.querySelector('.dropdown');
+  dropdown.addEventListener('mouseout', function (event) {
+    var dropdownMenu = this.querySelector('.dropdown-menu');
+    dropdownMenu.classList.remove('show');
+  });
 });

@@ -61,6 +61,9 @@ body {
 .navbar .dropdown-item:hover {
   background-color: #212529 !important;
 }
+.dropdown-menu{
+width: 50%;
+}
 
 /*-------fin menu-------*/
 /*-------carrusel-------*/
