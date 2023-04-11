@@ -23,6 +23,12 @@
     <!--JQuery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!--Fin JQuery-->
+    <!--jspdf-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- fin jspdf-->
+    <!-- autotable jspdf-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+    <!-- fin autotable jspdf-->
     <link rel="shortcut icon" href="/recursos/imagenes/icon.png" type="image/x-icon">
     <title>FrutaFina S.A. - Arándanos y Cerezas</title>
 </head>
@@ -56,7 +62,8 @@
                             Procesos
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item active" aria-current="page" href="/html/cotizacion.html">Cotización</a></li>
+                            <li><a class="dropdown-item active" aria-current="page"
+                                    href="/html/cotizacion.html">Cotización</a></li>
                             <li><a class="dropdown-item" href="/html/reclamo.html">Reclamo</a></li>
                         </ul>
                     </li>
@@ -109,9 +116,11 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">
                                                 <!-- Agrega un ID a cada imagen para poder manipularlas con JavaScript -->
-                                                <img id="frutafina-icon" src="/recursos/imagenes/lineal-frutafina-icon.png">
+                                                <img id="frutafina-icon"
+                                                    src="/recursos/imagenes/lineal-frutafina-icon.png">
                                                 <img id="cereza-icon" src="/recursos/imagenes/lineal-cereza-icon.png">
-                                                <img id="arandano-icon" src="/recursos/imagenes/lineal-arandano-icon.png">
+                                                <img id="arandano-icon"
+                                                    src="/recursos/imagenes/lineal-arandano-icon.png">
                                             </div>
                                         </div>
                                         <!-- Agrega un evento onchange al campo de selección para detectar cuándo el usuario cambia la opción seleccionada -->
@@ -127,7 +136,8 @@
                                 <div class="form-group">
                                     <div class="input-group mb-2">
                                         <div class="input-group-prepend">
-                                            <div class="input-group-text"><img src="/recursos/imagenes/lineal-variedad.png"></div>
+                                            <div class="input-group-text"><img
+                                                    src="/recursos/imagenes/lineal-variedad.png"></div>
                                         </div>
                                         <select class="form-control" id="select-variedad" name="variedad" required>
                                             <option selected disabled>Seleccione un tipo de variedad</option>
@@ -139,7 +149,8 @@
                                 <div class="form-group">
                                     <div class="input-group mb-2">
                                         <div class="input-group-prepend">
-                                            <div class="input-group-text"><img src="/recursos/imagenes/lineal-caja-icon.png"></div>
+                                            <div class="input-group-text"><img
+                                                    src="/recursos/imagenes/lineal-caja-icon.png"></div>
                                         </div>
                                         <select class="form-control" id="select-tipo-caja" name="tipo-caja" required>
                                             <option selected disabled>Seleccione un tipo de caja</option>
@@ -151,7 +162,8 @@
                                 <div class="form-group">
                                     <div class="input-group mb-2">
                                         <div class="input-group-prepend">
-                                            <div class="input-group-text"><img src="/recursos/imagenes/lineal-cajas-icon.png"></div>
+                                            <div class="input-group-text"><img
+                                                    src="/recursos/imagenes/lineal-cajas-icon.png"></div>
                                         </div>
                                         <input type="number" class="form-control" id="cantidad-cajas"
                                             name="cantidad-cajas" placeholder="Cantidad de cajas" required>
@@ -160,11 +172,13 @@
                                 <!-- fin input cantidad de cajas-->
                                 <div id="error-message"></div>
                                 <div class="text-center">
-                                    <input type="button" value="Cotizar" class="btn btn-success btn-block py-2">
-                                    <input type="button" value="Descargar PDF" class="btn btn-danger btn-block py-2"
-                                        style="display:none">
-                                    <input type="button" value="Nueva cotización" class="btn btn-primary btn-block py-2"
-                                        style="display:none">
+                                    <input type="button" value="Cotizar"
+                                        class="btn btn-success btn-block py-2 btn-spacing">
+                                    <input type="button" value="Descargar PDF"
+                                        class="btn btn-danger btn-block py-2 btn-spacing" style="display:none"
+                                        id="descargar-pdf">
+                                    <input type="button" value="Nueva cotización"
+                                        class="btn btn-primary btn-block py-2 btn-spacing" style="display:none">
                                 </div>
                                 <div id="resumen"></div>
                             </div>

@@ -15,7 +15,7 @@ $(document).ready(function () {
       mybutton.style.display = "none";
     }
   }
-  // Cuando el usuario haga clic en el botón, desplácese hasta la parte superior del documento
+  // Cuando el usuario haga clic en el botón, scroll hasta la parte superior del documento
   mybutton.addEventListener("click", backToTop);
   function backToTop() {
     document.body.scrollTop = 0;
@@ -47,18 +47,27 @@ $(document).ready(function () {
       document.querySelector('#btn-oculto-modal').style.display = 'none';
     });
   });
+  // input nombre que la primera letra de cada palabra sea mayuscula jquery
+  $('#nombre').on('input', function () {
+    $(this).val(
+      $(this)
+        .val()
+        .replace(/\b\w/g, function (l) {
+          return l.toUpperCase();
+        })
+    );
+  });
   // validar input nombre que solo se ingresen letras y espacios y cantidad de letras ingresadas
   let inputNombre = document.querySelector('#nombre');
-  let regex = /^[a-zA-ZáéíóúÁÉÍÓÚ\s]*$/; // Agregar letras, letras con acentos y un espacio entre palabras
+  let regex = /^[a-zA-ZáéíóúÁÉÍÓÚ]+(\s[a-zA-ZáéíóúÁÉÍÓÚ]+)*$/; // Agregar letras, letras con acentos y un solo espacio entre palabras
   let minLength = 3;
   let maxLength = 100;
-
   inputNombre.addEventListener('input', function () {
     let words = inputNombre.value.trim().split(/\s+/);
     if (!regex.test(inputNombre.value)) {
-      inputNombre.setCustomValidity('Por favor ingresa solo letras y un espacio entre palabras.');
-    } else if (words.length !== 2) {
-      inputNombre.setCustomValidity('Por favor ingresa nombre y apellido.');
+      inputNombre.setCustomValidity('Por favor ingrese solo letras y un espacio entre palabras.');
+    } else if (words.length < 2 || words.length > 5) {
+      inputNombre.setCustomValidity('Por favor ingrese nombre y apellido.');
     } else if (words.some(word => word.length < minLength)) {
       inputNombre.setCustomValidity(`Cada palabra debe tener al menos ${minLength} caracteres.`);
     } else if (words.some(word => word.length > maxLength)) {
@@ -66,6 +75,16 @@ $(document).ready(function () {
     } else {
       inputNombre.setCustomValidity('');
     }
+  });
+  // agrega un controlador de eventos input al campo de asunto y convertirá la primera letra de cada palabra y la primera letra después de un punto en mayúscula
+  $('#asunto').on('input', function () {
+    $(this).val(
+      $(this)
+        .val()
+        .replace(/(^|\.\s+)\w/g, function (l) {
+          return l.toUpperCase();
+        })
+    );
   });
   // validar input asunto cantidad de letras ingresadas 
   let inputAsunto = document.querySelector('#asunto');
@@ -115,6 +134,16 @@ $(document).ready(function () {
       }
     }
   });
+  // agrega un controlador de eventos input al campo de mensaje y convertirá la primera letra de cada palabra y la primera letra después de un punto en mayúscula
+  $('#mensaje').on('input', function () {
+    $(this).val(
+      $(this)
+        .val()
+        .replace(/(^|\.\s+)\w/g, function (l) {
+          return l.toUpperCase();
+        })
+    );
+  });
   // validar input mensaje - validacion min y maximo de caracteres
   inputMensaje = document.querySelector('#mensaje');
   let minLengthDos = 4;
@@ -131,6 +160,7 @@ $(document).ready(function () {
       inputMensaje.setCustomValidity('');
     }
   });
+
   // boton modo oscuro - y modo claro
   const temaOscuro = () => {
     document.querySelector("body").setAttribute("data-bs-theme", "dark");

@@ -59,7 +59,7 @@
 .form-cotizacion .img-header-cotizacion {
     background-image: linear-gradient(to bottom, #A1CF2F, #b8e986);
 
- /*-   background-image: url('/recursos/imagenes/banner-modal-contacto.jpg');--*/
+    /*-   background-image: url('/recursos/imagenes/banner-modal-contacto.jpg');--*/
     border-radius: 3px 3px 0px 0px;
     text-transform: uppercase;
 }
@@ -127,13 +127,19 @@
 #error-message.highlight {
     animation: highlight 1s ease-in-out;
 }
-#error-message{
-    display: none; 
+
+#error-message {
+    display: none;
     color: red;
     font-weight: 600;
 }
+
 .input-error {
     border: 5px solid red !important;
+}
+
+.btn-spacing {
+    margin: 5px 0;
 }
 
 /*------- form cotizacion -------*/

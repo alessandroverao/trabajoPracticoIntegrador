@@ -271,4 +271,48 @@ $(document).ready(function () {
             el.value = '';
         });
     });
+    // generar pdf con jsPDF
+    document.querySelector('#descargar-pdf').addEventListener('click', function () {
+        // Crear una nueva instancia de jsPDF
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        // Agregar contenido al PDF
+        doc.setFontSize(22);
+        doc.text('FrutaFina S.A.', 10, 20);
+        doc.addImage('/recursos/imagenes/icon.png', 'JPEG', 170, 10, 25, 25);
+        doc.setFontSize(16);
+        doc.text(new Date().toLocaleString(), 10, 30);
+
+        let content = document.getElementById("resumen").textContent;
+        content = content.replace(/\n/g, ' ');
+        content = content.replace(/\t/g, ' ');
+        content = content.replace(/ +/g, ' ');
+
+        doc.setFontSize(11);
+        const lines = doc.splitTextToSize(content, 180);
+        let y = 80;
+        lines.forEach(line => {
+            doc.text(line, 10, y);
+            y += 7;
+        });
+
+        const head = [['CONTACTO']];
+        const body = [
+            ['Buenos Aires: Asunción 1356 P.17 CABA C1000ABC ARGENTINA'],
+            ['+54 11 4872 6100'],
+            ['contacto@frutafina.com']
+        ];
+
+        doc.autoTable({
+            head: head,
+            body: body,
+            startY: y + 10,
+            theme: 'plain'
+        });
+
+        doc.setFontSize(11);
+        // Descargar el archivo PDF
+        doc.save('Cotización-FrutaFina-' + new Date().toLocaleString() + '.pdf');
+    });
+
 });
