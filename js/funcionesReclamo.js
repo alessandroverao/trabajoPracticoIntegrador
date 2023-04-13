@@ -3,39 +3,40 @@ $(document).ready(function () {
     document.getElementById('texto-reclamo').addEventListener('click', function () {
         this.setSelectionRange(0, 0);
     });
-    var constraints = {
+    // validacion formulario reclamo, siempre se hace la validacion al hacer click en el boton submit o cuando se da un enter en un input
+    var constraints = {  // sintaxis de validate.js
         "nombre-reclamo": {
-            presence: { message: "requerido" },
-            length: { minimum: 3, message: "debe tener al menos 3 caracteres" },
+            presence: { message: "Requerido" },
+            length: { minimum: 3, message: "Debe tener al menos 3 caracteres" },
             format: {
                 pattern: /^[a-zA-ZÀ-ÿ\s]+$/,
-                message: "solo puede contener letras y espacios"
+                message: "Solo puede contener letras y espacios"
             }
         },
         "apellido-reclamo": {
-            presence: { message: "requerido" },
-            length: { minimum: 3, message: "debe tener al menos 3 caracteres" },
+            presence: { message: "Requerido" },
+            length: { minimum: 3, message: "Debe tener al menos 3 caracteres" },
             format: {
                 pattern: /^[a-zA-ZÀ-ÿ\s]+$/,
-                message: "solo puede contener letras y espacios"
+                message: "Solo puede contener letras y espacios"
             }
         },
         "email-reclamo": {
-            presence: { message: "requerido" },
-            email: { message: "no es válido" }
+            presence: { message: "Requerido" },
+            email: { message: "No es válido" }
         },
         "telefono-reclamo": {
-            presence: { message: "requerido" },
+            presence: { message: "Requerido" },
             numericality: { onlyInteger: true, message: "Ingrese solamente números" },
-            length: { minimum: 8, message: "debe tener al menos 8 caracteres" }
+            length: { minimum: 8, message: "Debe tener al menos 8 caracteres" }
         },
         "compra-reclamo": {
-            presence: { message: "requerido" },
-            numericality: { onlyInteger: true, message: "debe ser un número entero" }
+            presence: { message: "Requerido" },
+            numericality: { onlyInteger: true, message: "Debe ser un número entero" }
         }
     };
 
-    $("#form-reclamo").submit(function(event) {
+    $("#form-reclamo").submit(function (event) {
         event.preventDefault();
         var values = validate.collectFormValues(event.target);
         var errors = validate(values, constraints);
@@ -45,17 +46,18 @@ $(document).ready(function () {
             showSuccess();
         }
     });
-    
+
     function showErrors(errors) {
         $("input").removeClass("is-invalid");
         for (var key in errors) {
             var errorElement = $("#" + key);
             errorElement.addClass("is-invalid");
             var message = errors[key][0];
+            message = message.replace(/nombre reclamo|apellido reclamo|email reclamo|telefono reclamo|compra reclamo/gi, "");
             errorElement.next().text(message);
         }
     }
-    
+
     function showSuccess() {
         $("input").removeClass("is-invalid").val("");
         $("#success-message").text("¡Reclamo enviado con éxito!");
