@@ -112,7 +112,7 @@ $(document).ready(function () {
     'yandex.com',
     'protonmail.com'
   ];
-  let apiKey = 'fdac890a56950b1b05045bb709b8623e4cd8ce30'; /// codigo key de mi cuenta creada en hunter
+  let apiKey = 'fdac890a56950b1b05045bb709b8623e4cd8ce30'; // código key de mi cuenta creada en hunter
   inputEmail.addEventListener('input', function () {
     if (!regexDos.test(inputEmail.value)) {
       inputEmail.setCustomValidity('Por favor ingresa un correo electrónico válido.');
@@ -121,16 +121,17 @@ $(document).ready(function () {
       if (!allowedDomains.includes(domain)) {
         inputEmail.setCustomValidity(`El dominio ${domain} no está permitido.`);
       } else {
-        fetch(`https://api.hunter.io/v2/email-verifier?email=${inputEmail.value}&api_key=${apiKey}`)
-          .then(response => response.json())
-          .then(data => {
+        $.ajax({
+          url: `https://api.hunter.io/v2/email-verifier?email=${inputEmail.value}&api_key=${apiKey}`,
+          success: function (data) {
             // Procesar los datos recibidos de la API
             if (data.data.status === 'invalid') {
               inputEmail.setCustomValidity('El correo electrónico no es válido o no existe.');
             } else {
               inputEmail.setCustomValidity('');
             }
-          });
+          }
+        });
       }
     }
   });
