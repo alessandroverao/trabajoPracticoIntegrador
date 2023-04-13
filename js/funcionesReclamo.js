@@ -35,7 +35,7 @@ $(document).ready(function () {
         }
     };
 
-    document.querySelector("#form-reclamo").addEventListener("submit", function (event) {
+    $("#form-reclamo").submit(function(event) {
         event.preventDefault();
         var values = validate.collectFormValues(event.target);
         var errors = validate(values, constraints);
@@ -45,25 +45,20 @@ $(document).ready(function () {
             showSuccess();
         }
     });
-
+    
     function showErrors(errors) {
-        document.querySelectorAll("input").forEach(function (element) {
-            element.classList.remove("is-invalid");
-        });
+        $("input").removeClass("is-invalid");
         for (var key in errors) {
-            var errorElement = document.querySelector("#" + key);
-            errorElement.classList.add("is-invalid");
+            var errorElement = $("#" + key);
+            errorElement.addClass("is-invalid");
             var message = errors[key][0];
-            errorElement.nextElementSibling.textContent = message;
+            errorElement.next().text(message);
         }
     }
-
+    
     function showSuccess() {
-        document.querySelectorAll("input").forEach(function (element) {
-            element.classList.remove("is-invalid"); //elimina los mensajes de errores
-            element.value = ""; // vacia los campos input
-        });
-        document.querySelector("#success-message").textContent = "¡Reclamo enviado con éxito!";
+        $("input").removeClass("is-invalid").val("");
+        $("#success-message").text("¡Reclamo enviado con éxito!");
     }
 
 });
