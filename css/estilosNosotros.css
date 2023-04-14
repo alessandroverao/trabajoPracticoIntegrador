@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font: 1em/1.85em 'Open Sans', "Arial", sans-serif;
+  font: 1em/1.85em "Open Sans", "Arial", sans-serif;
 }
 
 *::-webkit-scrollbar-track {
@@ -11,7 +11,7 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #A1CF2F;
+  background-color: #a1cf2f;
   /*color del manejador*/
 }
 
@@ -46,12 +46,12 @@ body {
 #letra-logo:hover,
 .navbar .nav-link:hover,
 .navbar .dropdown-item:hover {
-  color: #A1CF2F;
-  transition-delay: 0s
+  color: #a1cf2f;
+  transition-delay: 0s;
 }
 
 .navbar a.active {
-  color: #A1CF2F !important;
+  color: #a1cf2f !important;
 }
 
 .navbar .dropdown .active {
@@ -61,8 +61,8 @@ body {
 .navbar .dropdown-item:hover {
   background-color: #212529 !important;
 }
-.dropdown-menu{
-width: 50%;
+.dropdown-menu {
+  width: 50%;
 }
 
 /*-------fin menu-------*/
@@ -95,7 +95,16 @@ width: 50%;
 .carousel-caption h1 {
   text-transform: uppercase;
 }
-
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 50px !important;
+  height: 50px !important;
+  background-size: 50px 50px !important;
+}
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+  filter: invert(1);
+}
 /*-------fin carrusel-------*/
 /*-------nosotros-------*/
 #nosotros {
@@ -124,7 +133,7 @@ width: 50%;
 }
 
 .fs-4 {
-  color: #A1CF2F;
+  color: #a1cf2f;
 }
 
 .fs-1 {
@@ -148,7 +157,7 @@ width: 50%;
   content: "";
   position: absolute;
   width: 3px;
-  background-color: #A1CF2F;
+  background-color: #a1cf2f;
   top: 0;
   bottom: 0;
   left: 50%;
@@ -169,7 +178,7 @@ width: 50%;
   width: 25px;
   height: 25px;
   right: -11px;
-  background-color: #A1CF2F;
+  background-color: #a1cf2f;
   top: 15px;
   border-radius: 50%;
   z-index: 1;
@@ -196,7 +205,7 @@ width: 50%;
   right: 30px;
   border: medium solid white;
   border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent #A1CF2F;
+  border-color: transparent transparent transparent #a1cf2f;
 }
 
 /* Agregar flechas al contenedor derecho (apuntando a la izquierda) */
@@ -208,7 +217,7 @@ width: 50%;
   left: 30px;
   border: medium solid white;
   border-width: 10px 10px 10px 0;
-  border-color: transparent #A1CF2F transparent transparent;
+  border-color: transparent #a1cf2f transparent transparent;
 }
 
 /* Fijar el círculo para contenedores en el lado derecho */
@@ -218,7 +227,6 @@ width: 50%;
 
 /* Consultas de medios: línea de tiempo receptiva en pantallas de menos de 1024px de ancho */
 @media screen and (max-width: 1024px) {
-
   /* Coloca la línea de tiempo a la izquierda */
   .main-timeline-2::after {
     left: 31px;
@@ -236,7 +244,7 @@ width: 50%;
     left: 60px;
     border: medium solid white;
     border-width: 10px 10px 10px 0;
-    border-color: transparent #A1CF2F transparent transparent;
+    border-color: transparent #a1cf2f transparent transparent;
   }
 
   /* Asegúrate de que todos los círculos estén en el mismo lugar */
@@ -319,7 +327,7 @@ width: 50%;
   display: none;
   z-index: 5;
   border-radius: 50%;
-  background-color: #2B3035;
+  background-color: #2b3035;
   border: none;
 }
 
@@ -345,7 +353,7 @@ footer .text-white {
 
 footer .text-white:hover,
 footer h6[FrutaFina] {
-  color: #A1CF2F !important;
+  color: #a1cf2f !important;
 }
 
 footer .bi-star-fill {
@@ -362,13 +370,13 @@ footer .bi-star-fill {
 .form-group .input-group,
 .form-group input,
 .form-group textarea {
-  border: 1px solid #A1CF2F;
+  border: 1px solid #a1cf2f;
   border-radius: 5px;
 }
 
 .form-group .input-group,
 .form-group .input-group-text {
-  background-color: #A1CF2F;
+  background-color: #a1cf2f;
   border: none;
 }
 
@@ -378,13 +386,13 @@ footer .bi-star-fill {
 }
 
 .form-control:focus {
-  border-color: #A1CF2F;
-  box-shadow: 0 0 0 1px #A1CF2F;
-  outline-color: #A1CF2F;
+  border-color: #a1cf2f;
+  box-shadow: 0 0 0 1px #a1cf2f;
+  outline-color: #a1cf2f;
 }
 
 .form-group .input-group:hover {
-  box-shadow: 0 0 0 3px #A1CF2F;
+  box-shadow: 0 0 0 3px #a1cf2f;
 }
 
 /*------- fin modal contacto -------*/
@@ -405,11 +413,11 @@ body[data-bs-theme="dark"] .section-personal i {
 }
 
 body[data-bs-theme="dark"] .section-personal i:hover {
-  color: #A1CF2F !important;
+  color: #a1cf2f !important;
 }
 
 body[data-bs-theme="dark"] #btn-back-to-top {
-  background-color: #A1CF2F;
+  background-color: #a1cf2f;
 }
 
 body[data-bs-theme="dark"] #btn-back-to-top i {
@@ -419,8 +427,7 @@ body[data-bs-theme="dark"] #btn-back-to-top i {
 /* cambiar el color de la segunda capa al momento de pasar a modo oscuro y con resolucion menor a 991px - En el RGBA el valor 1 al final indica que el color es completamente opaco. */
 @media (max-width: 991px) {
   body[data-bs-theme="dark"] .section-personal .banner-image-pablo {
-    background: linear-gradient(rgba(33, 37, 41, 0.8),
-        rgba(33, 37, 41, 0.8)),
+    background: linear-gradient(rgba(33, 37, 41, 0.8), rgba(33, 37, 41, 0.8)),
       url(/recursos/imagenes/foto-pablo.png);
     background-repeat: no-repeat;
     background-position: right;
@@ -428,8 +435,7 @@ body[data-bs-theme="dark"] #btn-back-to-top i {
   }
 
   body[data-bs-theme="dark"] .section-personal .banner-image-ignacio {
-    background: linear-gradient(rgba(33, 37, 41, 0.8),
-        rgba(33, 37, 41, 0.8)),
+    background: linear-gradient(rgba(33, 37, 41, 0.8), rgba(33, 37, 41, 0.8)),
       url(/recursos/imagenes/foto-ignacio.png);
     background-repeat: no-repeat;
     background-position: right;
@@ -437,8 +443,7 @@ body[data-bs-theme="dark"] #btn-back-to-top i {
   }
 
   body[data-bs-theme="dark"] .section-personal .banner-image-alessandro {
-    background: linear-gradient(rgba(33, 37, 41, 0.8),
-        rgba(33, 37, 41, 0.8)),
+    background: linear-gradient(rgba(33, 37, 41, 0.8), rgba(33, 37, 41, 0.8)),
       url(/recursos/imagenes/foto-alessandro.png);
     background-repeat: no-repeat;
     background-position: right;
@@ -446,8 +451,7 @@ body[data-bs-theme="dark"] #btn-back-to-top i {
   }
 
   body[data-bs-theme="dark"] .section-personal .banner-image-matias {
-    background: linear-gradient(rgba(33, 37, 41, 0.8),
-        rgba(33, 37, 41, 0.8)),
+    background: linear-gradient(rgba(33, 37, 41, 0.8), rgba(33, 37, 41, 0.8)),
       url(/recursos/imagenes/foto-matias.png);
     background-repeat: no-repeat;
     background-position: right;
@@ -455,8 +459,7 @@ body[data-bs-theme="dark"] #btn-back-to-top i {
   }
 
   body[data-bs-theme="dark"] .section-personal .banner-image-rodrigo {
-    background: linear-gradient(rgba(33, 37, 41, 0.8),
-        rgba(33, 37, 41, 0.8)),
+    background: linear-gradient(rgba(33, 37, 41, 0.8), rgba(33, 37, 41, 0.8)),
       url(/recursos/imagenes/foto-rodrigo.png);
     background-repeat: no-repeat;
     background-position: right;
@@ -464,8 +467,7 @@ body[data-bs-theme="dark"] #btn-back-to-top i {
   }
 
   body[data-bs-theme="dark"] .section-personal .banner-image-leonela {
-    background: linear-gradient(rgba(33, 37, 41, 0.8),
-        rgba(33, 37, 41, 0.8)),
+    background: linear-gradient(rgba(33, 37, 41, 0.8), rgba(33, 37, 41, 0.8)),
       url(/recursos/imagenes/foto-leonela.png);
     background-repeat: no-repeat;
     background-position: right;
@@ -473,8 +475,7 @@ body[data-bs-theme="dark"] #btn-back-to-top i {
   }
 
   body[data-bs-theme="dark"] .section-personal .banner-image-juan {
-    background: linear-gradient(rgba(33, 37, 41, 0.8),
-        rgba(33, 37, 41, 0.8)),
+    background: linear-gradient(rgba(33, 37, 41, 0.8), rgba(33, 37, 41, 0.8)),
       url(/recursos/imagenes/foto-juan.png);
     background-repeat: no-repeat;
     background-position: right;

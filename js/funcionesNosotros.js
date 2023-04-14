@@ -1,4 +1,12 @@
 $(document).ready(function () {
+  //activar carrusel de imagenes cuando se carga por completo la pagina
+  window.addEventListener('load', function () {
+    if (window.location.pathname.endsWith('index.html')) {
+      var myCarousel = document.querySelector('#carouselExampleSlidesOnly');
+      var carousel = new bootstrap.Carousel(myCarousel);
+    }
+  });
+  // boton para subir al top
   // Obtener el boton
   let mybutton = document.getElementById("btn-back-to-top");
   // Cuando el usuario se desplaza hacia abajo 20px desde la parte superior del documento, muestra el botón
@@ -23,7 +31,7 @@ $(document).ready(function () {
   }
   // evitar cierre modal al hacer click boton submit
   $("form").submit(function (event) {
-    event.preventDefault();
+    event.preventDefault(); // Evita que la página se recargue
   });
   // el boton con el texto aparece oculto y desactivado en el modal y mostrarlo cuando se haga click en el boton enviar (submit), vaciar los input
   document.querySelector('#modalContacto').addEventListener('submit', function (event) {
@@ -97,7 +105,51 @@ $(document).ready(function () {
       inputAsunto.setCustomValidity('');
     }
   });
-  // validar input email - y consumo de api que verifica la existencia del email
+  // validar input email - y consumo de api (reqres.in) solo para enviar un dato y recibir una respuesta 
+  let inputEmail = document.querySelector('#email');
+  let regexDos = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  let allowedDomains = [
+    'gmail.com',
+    'hotmail.com',
+    'yahoo.com',
+    'outlook.com',
+    'icloud.com',
+    'aol.com',
+    'msn.com',
+    'live.com',
+    'yandex.com',
+    'protonmail.com'
+  ];
+  inputEmail.addEventListener('input', function () {
+    inputEmail.setCustomValidity('');
+    if (!regexDos.test(inputEmail.value)) {
+      inputEmail.setCustomValidity('Por favor ingresa un correo electrónico válido.');
+      $('#email').removeAttr('title');
+    } else {
+      let domain = inputEmail.value.split('@')[1];
+      if (!allowedDomains.includes(domain)) {
+        inputEmail.setCustomValidity(`El dominio ${domain} no está permitido.`);
+        $('#email').removeAttr('title');
+      } else {
+        $.ajax({
+          url: "https://reqres.in/api/users",
+          type: "POST",
+          data: {
+            email: `${inputEmail.value}`
+          },
+          success: function (data) {
+            console.log(data);
+            $('#email').attr('title', 'El correo ' + data.email + ' está permitido.'); // Mostrar la respuesta en elemento HTML en el TITLE del Input EMAIL
+          },
+          error: function () {
+            console.error("Error en la solicitud"); // Mostrar un mensaje de error en caso de fallo
+          }
+        });
+      }
+    }
+  });
+
+/*  // validar input email - y consumo de api que verifica la existencia del email
   let inputEmail = document.querySelector('#email');
   let regexDos = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   let allowedDomains = [
@@ -134,7 +186,9 @@ $(document).ready(function () {
         });
       }
     }
-  });
+  }); */
+
+
   // agrega un controlador de eventos input al campo de mensaje y convertirá la primera letra de cada palabra y la primera letra después de un punto en mayúscula
   $('#mensaje').on('input', function () {
     $(this).val(
