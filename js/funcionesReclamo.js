@@ -36,32 +36,32 @@ $(document).ready(function () {
         }
     };
 
-    $("#form-reclamo").submit(function (event) {
-        event.preventDefault();
-        var values = validate.collectFormValues(event.target);
-        var errors = validate(values, constraints);
-        if (errors) {
+    $("#form-reclamo").submit(function (event) { //se selecciona form-reclamo// 
+        event.preventDefault(); //con el event o evento se detiene las funciones normales o predefinidas en este caso para que no se envie el formulario  
+        var values = validate.collectFormValues(event.target); //validate.collectFormValues(event.target) recopila los valores del formulario en un objeto
+        var errors = validate(values, constraints); // validate contiene values "que son los datos del formulario", constraints "son lo que definimos anteriormente, las reglas a aplicar"
+        if (errors) { // si se cumple este if se llama a la funcion errors
             showErrors(errors);
         } else {
-            showSuccess();
+            showSuccess(); // se llama a showSuccess 
         }
     });
 
     function showErrors(errors) {
-        $("input").removeClass("is-invalid");
-        for (var key in errors) {
-            var errorElement = $("#" + key);
-            errorElement.addClass("is-invalid");
-            var message = errors[key][0];
-            message = message.replace(/nombre reclamo|apellido reclamo|email reclamo|telefono reclamo|compra reclamo/gi, "");
-            errorElement.next().text(message);
+        $("input").removeClass("is-invalid");//Se limina la clase "is-invalid"
+        for (var key in errors) { //se recorre error con un for in donde la variable key se establece como el nombre de una propiedad de errors, es decir, el nombre de un campo del formulario que ha fallado en la validación.
+            var errorElement = $("#" + key); // si key es "nombre-reclamo", entonces la expresión "#" + key será "#nombre-reclamo", que se utiliza para seleccionar el elemento del DOM con id="nombre-reclamo"
+            errorElement.addClass("is-invalid");//si el lemento  presenta error entonces se añade la clase "is-invalid"
+            var message = errors[key][0]; //si errors tiene la propiedad "nombre-reclamo" con un array que contiene el mensaje "Requerido", entonces errors["nombre-reclamo"][0] será igual a "Requerido", y message tomará ese valor en la línea mencionada.
+            message = message.replace(/nombre reclamo|apellido reclamo|email reclamo|telefono reclamo|compra reclamo/gi, ""); //  ("nombre reclamo", "apellido reclamo", etc.) y los reemplaza por una cadena vacía (""), eliminando así los nombres de los campos del mensaje de error
+            errorElement.next().text(message);errorElement.next() //se refiere al elemento HTML que sigue inmediatamente después del elemento errorElement, con el text establece el mensaje de error message
         }
     }
 
     function showSuccess() {
-        $("input").removeClass("is-invalid").val("");
-        $("textarea").val("");
-        $("#success-message").text("¡Reclamo enviado con éxito!");
+        $("input").removeClass("is-invalid").val(""); // elimina todos los "is-invalid" a todos los input 
+        $("textarea").val("");//limpia el texarea 
+        $("#success-message").text("¡Reclamo enviado con éxito!");//con el text pone un mensaje de "Reclamo enviado con exito"
     }
 
 });
