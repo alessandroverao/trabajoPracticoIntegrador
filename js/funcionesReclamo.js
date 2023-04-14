@@ -60,6 +60,7 @@ $(document).ready(function () {
 
     function showSuccess() {
         $("input").removeClass("is-invalid").val("");
+        $("textarea").val("");
         $("#success-message").text("¡Reclamo enviado con éxito!");
     }
 
