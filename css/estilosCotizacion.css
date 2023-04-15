@@ -160,15 +160,15 @@
     right: 0;
 }
 
-@media (max-width: 767px) {
-
+@media (max-width: 767px) { /* pantalla menores a  767 manda las 2 imagenes izq y der, arriba del formulario y le da un margen */
+                                /* max-width pantalla menores, min-width pantalla mayores */
     .imagen-izquierda,
     .imagen-derecha {
-        position: static;
-        display: block;
+        position: static; /* posicion estatica */
+        display: block; /* se establece para bloquear la imagen*/
         max-width: 50%;
-        height: auto;
-        margin: 20px auto;
+        height: auto; 
+        margin: 20px auto; /* arriba y abajo 20 px y izq y der automatico para centrar*/
     }
 }
 

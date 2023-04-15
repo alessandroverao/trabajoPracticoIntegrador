@@ -70,7 +70,7 @@ $(document).ready(function () {
         'Frisco': 648,
         'Brocks': 693
     };
-    const preciosArandano = {
+    const preciosArandano = {       //tipo de arandanos con su precio
         'Duke': 391,
         'Draper': 357,
         'Blue Ribbon': 308,
