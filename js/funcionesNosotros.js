@@ -228,6 +228,10 @@ $(document).ready(function () {
       document.querySelector(".imagen-izquierda").src = "/recursos/imagenes/lineal-cereza-blanca.png";
       document.querySelector(".imagen-derecha").src = "/recursos/imagenes/lineal-arandano-blanco.png";
     }
+    if (location.pathname.endsWith("reclamo.html")) { // cuando se activa el modo dark se vambian las imagenes
+      // Cambiar la imágen reclamo
+      document.querySelector("#imagen-reclamo").src = "/recursos/imagenes/reclamos_flyer_dark.jpg";
+    }
   }
   const temaClaro = () => {
     document.querySelector("body").setAttribute("data-bs-theme", "light");
@@ -238,6 +242,10 @@ $(document).ready(function () {
       // Cambiar las imágenes
       document.querySelector(".imagen-izquierda").src = "/recursos/imagenes/lineal-cereza.png";
       document.querySelector(".imagen-derecha").src = "/recursos/imagenes/lineal-arandano.png";
+    }
+    if (location.pathname.endsWith("reclamo.html")) { // cuando se activa el modo claro se vambian las imagenes
+      // Cambiar la imágen reclamo
+      document.querySelector("#imagen-reclamo").src = "/recursos/imagenes/reclamos_flyer.jpg";
     }
   }
   const cambiarTema = () => {
