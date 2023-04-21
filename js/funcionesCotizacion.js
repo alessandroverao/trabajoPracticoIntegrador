@@ -4,25 +4,25 @@ $(document).ready(function () {
     document.getElementById("cereza-icon").style.display = "none";
     document.getElementById("arandano-icon").style.display = "none";
     // Función que se ejecuta cuando el usuario cambia la opción seleccionada
-    // Define la función updateProductIcon dentro de la función de callback de $(document).ready()
-    function updateProductIcon() {
+    // Define la función actualizarProductoIcono dentro de $(document).ready()
+    function actualizarProductoIcono() {
         // Obtiene el valor de la opción seleccionada
-        var selectedProduct = document.getElementById("select-producto").value;
+        var productoSeleccionado = document.getElementById("select-producto").value;
 
         // Muestra la imagen correspondiente y oculta la otra
-        if (selectedProduct === "cereza") {
+        if (productoSeleccionado === "cereza") {
             document.getElementById("cereza-icon").style.display = "inline";
             document.getElementById("arandano-icon").style.display = "none";
             document.getElementById("frutafina-icon").style.display = "none";
-        } else if (selectedProduct === "arandano") {
+        } else if (productoSeleccionado === "arandano") {
             document.getElementById("cereza-icon").style.display = "none";
             document.getElementById("frutafina-icon").style.display = "none";
             document.getElementById("arandano-icon").style.display = "inline";
         }
     }
 
-    // Asigna la función updateProductIcon al evento onchange del elemento select utilizando jQuery
-    $("#select-producto").on("change", updateProductIcon);
+    // Asigna la función actualizarProductoIcono al evento onchange del elemento select utilizando jQuery
+    $("#select-producto").on("change", actualizarProductoIcono);
     // generar variedades apartir del producto seleccionado 
     const selectProducto = document.querySelector('#select-producto');
     const selectVariedad = document.querySelector('#select-variedad');
@@ -32,8 +32,8 @@ $(document).ready(function () {
         cereza: ['Santina', 'Van', 'Bing', 'Stella', 'Lapins', 'Kordia', 'Regina', 'Sweet Heart', 'Burlat',
             'Marvin', 'Royal Tioga', 'Pacific Red', 'Ruby', 'Early Red', 'Royal Bailey', 'Royal Hazel', 'Rocket', 'Carmen', 'Frisco', 'Brocks']
     };
-    selectProducto.addEventListener('change', (event) => {
-        const productoSeleccionado = event.target.value;
+    selectProducto.addEventListener('change', (evento) => {
+        const productoSeleccionado = evento.target.value;
         const opcionesVariedad = variedades[productoSeleccionado];
         // Limpiar las opciones anteriores
         selectVariedad.innerHTML = '<option selected disabled>Seleccione un tipo de variedad</option>';
@@ -136,7 +136,7 @@ $(document).ready(function () {
     };
     //validacion de input number al ingresar un valor
     const inputCantidadCajas = document.querySelector('#cantidad-cajas');
-    const errorMessage = document.querySelector('#error-message');
+    const errorMensaje = document.querySelector('#error-mensaje');
     // Agrega un controlador de eventos para el evento keydown
     inputCantidadCajas.addEventListener('keydown', (event) => {
         // Verifica si la tecla presionada es un punto, una coma o una "e"
@@ -150,12 +150,12 @@ $(document).ready(function () {
         if (value === '' || !Number.isInteger(Number(value)) || Number(value) <= 0) {
             // El valor ingresado no es válido
             // Mostrar un mensaje de error al usuario
-            errorMessage.textContent = 'El valor debe ser un número entero mayor a 0';
-            errorMessage.style.display = 'block';
+            errorMensaje.textContent = 'El valor debe ser un número entero mayor a 0';
+            errorMensaje.style.display = 'block';
         } else {
             // El valor ingresado es válido
             // Ocultar el mensaje de error
-            errorMessage.style.display = 'none';
+            errorMensaje.style.display = 'none';
         }
     });
     // validacion de campos completos y habilitar botones
@@ -178,8 +178,8 @@ $(document).ready(function () {
                 el.disabled = true;
                 el.classList.remove('input-error');
             });
-            this.disabled = true;
-            document.querySelector('#error-message').style.display = 'none';
+            this.style.display = "none";
+            document.querySelector('#error-mensaje').style.display = 'none';
             // Actualiza el contenido del elemento de resumen
             // Convierte el valor a un número
             let cantidadCajasParaMostrar = Number(cantidadCajas);
@@ -217,13 +217,13 @@ $(document).ready(function () {
             }
 
         } else {
-            document.querySelector('#error-message').textContent = 'Por favor complete todos los campos';
-            document.querySelector('#error-message').style.display = 'block';
-            // Agregar la clase "highlight" al elemento "#error-message"
-            errorMessage.classList.add('highlight');
-            // Eliminar la clase "highlight" después de unos segundos
+            document.querySelector('#error-mensaje').textContent = 'Por favor complete todos los campos';
+            document.querySelector('#error-mensaje').style.display = 'block';
+            // Agregar la clase "destacar" al elemento "#error-mensaje"
+            errorMensaje.classList.add('destacar');
+            // Eliminar la clase "destacar" después de unos segundos
             setTimeout(() => {
-                errorMessage.classList.remove('highlight');
+                errorMensaje.classList.remove('destacar');
             }, 1000);
             // Agregar la clase "input-error" a los elementos de entrada que no se han completado correctamente
             if (producto === "Seleccione un producto") {
@@ -265,7 +265,7 @@ $(document).ready(function () {
         });
     });
     // evento que vacia los input del form en el caso que se avance una pagina o si se retrocede una pagina y vuelva a la misma luego.
-    window.addEventListener('beforeunload', function (event) {
+    window.addEventListener('beforeunload', function () {
         // Limpiar el contenido del formulario
         document.querySelectorAll('input, select').forEach(function (el) {
             el.value = '';

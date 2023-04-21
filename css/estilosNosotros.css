@@ -67,7 +67,7 @@ body {
 
 /*-------fin menu-------*/
 /*-------carrusel-------*/
-#carouselExampleSlidesOnly {
+#carrusel-nosotros {
   position: relative;
   margin-top: 44.49px;
 }
@@ -147,12 +147,12 @@ body {
 
 /*-------fin nosotros-------*/
 /*-------linea del tiempo-------*/
-/* La línea de tiempo real (la regla vertical) */
+/* contenedor de la linea del tiempo */
 .main-timeline-2 {
   position: relative;
 }
 
-/* La línea de tiempo real (la regla vertical) */
+/* La línea verde vertical, centrada en el contedor principal  */
 .main-timeline-2::after {
   content: "";
   position: absolute;
@@ -225,7 +225,7 @@ body {
   left: -14px;
 }
 
-/* Consultas de medios: línea de tiempo receptiva en pantallas de menos de 1024px de ancho */
+/* pantallas menos de 1024px de ancho */
 @media screen and (max-width: 1024px) {
   /* Coloca la línea de tiempo a la izquierda */
   .main-timeline-2::after {
@@ -239,7 +239,7 @@ body {
     padding-right: 25px;
   }
 
-  /* Asegúrate de que todas las flechas apunten hacia la izquierda */
+  /* las flechas apunten hacia la izquierda */
   .timeline-2::before {
     left: 60px;
     border: medium solid white;
@@ -247,7 +247,7 @@ body {
     border-color: transparent #a1cf2f transparent transparent;
   }
 
-  /* Asegúrate de que todos los círculos estén en el mismo lugar */
+  /* los círculos estén en el mismo lugar */
   .left-2::after,
   .right-2::after {
     left: 18px;
@@ -320,7 +320,7 @@ body {
 
 /*------- fin dulzura y calidad-------*/
 /*------- boton arriba -------*/
-#btn-back-to-top {
+#btn-ir-arriba {
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -331,11 +331,11 @@ body {
   border: none;
 }
 
-#btn-back-to-top .bi {
+#btn-ir-arriba .bi {
   color: white;
 }
 
-#btn-back-to-top:hover {
+#btn-ir-arriba:hover {
   transform: scale(1.2);
 }
 
@@ -394,21 +394,71 @@ footer .bi-star-fill {
 .form-group .input-group:hover {
   box-shadow: 0 0 0 3px #a1cf2f;
 }
-
+/* botones de todos los formularios*/
+.btn-success,
+.btn-success:disabled {
+  border: 2px solid #a1cf2f;
+  background-color: transparent;
+  color: #111;
+  font-weight: 600;
+}
+.btn-success:hover,
+.btn-success:active {
+  border: 2px solid #a1cf2f !important;
+  background-color: #a1cf2f !important;
+  color: white !important;
+}
+.btn-secondary,
+.btn-primary {
+  border: 2px solid #4a93fe;
+  background-color: transparent;
+  color: #111;
+  font-weight: 600;
+}
+.btn-secondary:hover,
+.btn-secondary:active,
+.btn-primary:hover,
+.btn-primary:active {
+  border: 2px solid #4a93fe !important;
+  background-color: #4a93fe !important;
+  color: white !important;
+}
+.btn-danger {
+  border: 2px solid red;
+  background-color: transparent;
+  color: #111;
+  font-weight: 600;
+}
+.btn-danger:hover,
+.btn-danger:active {
+  border: 2px solid red !important;
+  background-color: red !important;
+  color: white !important;
+}
+/* fin botones de todos los formularios*/
 /*------- fin modal contacto -------*/
 /*------- tema oscuro -------*/
-body[data-bs-theme="dark"] #carouselExampleSlidesOnly h1,
-body[data-bs-theme="dark"] #carouselExampleSlidesOnly h3,
+body[data-bs-theme="dark"] #carrusel-nosotros h1,
+body[data-bs-theme="dark"] #carrusel-nosotros h3,
 body[data-bs-theme="dark"] #container-dul-cal h2,
 body[data-bs-theme="dark"] #container-dul-cal p {
   color: white;
+}
+
+body[data-bs-theme="dark"] .carousel-control-prev-icon:hover,
+body[data-bs-theme="dark"] .carousel-control-next-icon:hover {
+  filter: invert(0);
 }
 
 body[data-bs-theme="dark"] #modalContacto i {
   color: black;
 }
 
-body[data-bs-theme="dark"] .section-personal i {
+body[data-bs-theme="dark"] .section-personal i,
+body[data-bs-theme="dark"] .btn-danger,
+body[data-bs-theme="dark"] .btn-primary,
+body[data-bs-theme="dark"] .btn-secondary,
+body[data-bs-theme="dark"] .btn-success {
   color: white !important;
 }
 

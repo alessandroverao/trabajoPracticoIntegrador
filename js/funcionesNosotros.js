@@ -1,47 +1,47 @@
 $(document).ready(function () {
   //activar carrusel de imagenes cuando se carga por completo la pagina
-  window.addEventListener('load', function () {
-    if (window.location.pathname.endsWith('index.html')) { // pregunta en que ventana estoy, endsWith pregunta el final en este caso index.html, en caso contrario starWith  pregunta por la parte adelante del url
-      var myCarousel = document.querySelector('#carouselExampleSlidesOnly');
-      var carousel = new bootstrap.Carousel(myCarousel); // son la imagenes de  las cerezas y arandanos , en este carrusel se ejecuta si estas en la ventana de nosotros
-    }// sino consume mas ram porque sigue funcionando a pesar que cambies de paginas
+  window.addEventListener('load', function () { // evento cuando carga la pagina
+    if (window.location.pathname.endsWith('index.html')) { // pregunta en que ventana estoy, endsWith pregunta el final en este caso index.html, en caso contrario startsWith  pregunta por la parte adelante del url
+      var miCarrusel = document.querySelector('#carrusel-nosotros');
+      var carrusel = new bootstrap.Carousel(miCarrusel); // le da al carrusel la funcion necesaria para cambiar entre imágenes y agregar controles de navegación.
+    }
   });
   // boton para subir al top
   // Obtener el boton
-  let mybutton = document.getElementById("btn-back-to-top"); // boton para ir arriba
+  let botonArriba = document.getElementById("btn-ir-arriba"); // boton para ir arriba
   // Cuando el usuario se desplaza hacia abajo 20px desde la parte superior del documento, muestra el botón
   window.onscroll = function () {  // cuando vos bajaste 20 px actives el boton 
-    scrollFunction();
+    funcionScroll(); //llama a la funcion
   };
-  function scrollFunction() {
+  function funcionScroll() {
     if (
-      document.body.scrollTop > 20 || // propiedad scrollTop
-      document.documentElement.scrollTop > 20
+      document.body.scrollTop > 20 || // propiedad scrollTop 
+      document.documentElement.scrollTop > 20 // pregunta si el scroll vertical bajo mas de 20px
     ) {
-      mybutton.style.display = "block"; // se establece para fijar el boton
+      botonArriba.style.display = "block"; // se establece para fijar el boton // muestra el boton
     } else {
-      mybutton.style.display = "none";
+      botonArriba.style.display = "none"; // en caso contrario (scroll vertical menos de 20px, oculta el boton)
     }
   }
   // Cuando el usuario haga clic en el botón, scroll hasta la parte superior del documento
-  mybutton.addEventListener("click", backToTop);
-  function backToTop() { // esta funcion sube a la parte superior
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
+  botonArriba.addEventListener("click", irArriba);
+  function irArriba() { // esta funcion sube a la parte superior
+    document.body.scrollTop = 0; // sube al top ("top = 0")
+    document.documentElement.scrollTop = 0;   // sube al top ("top = 0")
   }
   // evitar cierre modal al hacer click boton submit
-  $("form").submit(function (event) { // se puede definir el evento utilizando e o event
-    event.preventDefault(); // Evita que la página se recargue
+  $("form").submit(function (evento) { // se puede definir el evento utilizando e o event (cualquier nombre se le puede dar al evento)
+    evento.preventDefault(); // Evita que la página se recargue
   });
   // el boton con el texto aparece oculto y desactivado en el modal y mostrarlo cuando se haga click en el boton enviar (submit), vaciar los input
-  document.querySelector('#modalContacto').addEventListener('submit', function (event) { 
-    event.preventDefault();
-    if (event.target.checkValidity()) {  //si pasa la validacion se muestra el modal y todos los campos entran en vacio
-      document.querySelector('#btn-oculto-modal').style.display = 'block';
-      document.querySelector('#nombre').value = '';
-      document.querySelector('#asunto').value = '';
-      document.querySelector('#email').value = '';
-      document.querySelector('#mensaje').value = '';
+  document.querySelector('#modalContacto').addEventListener('submit', function (evento) {   // evento click boton enviar (es un boton tipo submit en el form)
+    evento.preventDefault();  // Evita que la página se recargue
+    if (evento.target.checkValidity()) {  //si pasa la validacion se muestran todos los campos vacios
+      document.querySelector('#btn-oculto-modal').style.display = 'block'; // muestra el boton boton que esta oculto en modal (el que contiene el mensaje)
+      document.querySelector('#nombre').value = ''; // vacia el input nombre
+      document.querySelector('#asunto').value = ''; // vacia el input asunto
+      document.querySelector('#email').value = ''; // vacia el input email
+      document.querySelector('#mensaje').value = ''; // vacia el input mensaje
     }
   });
   // verifica que si se cierra el modal y se vuelve abrir se oculte el boton del mensaje
@@ -49,68 +49,68 @@ $(document).ready(function () {
     document.querySelector('#btn-oculto-modal').style.display = 'none';// si se cierra el modal y esta el boton activo se oculte
   });
   // si selecciona nuevamente un input sin cerrar el modal, el boton con el mensaje se vuelve a ocultar
-  const inputs = document.querySelectorAll('#nombre, #asunto, #email, #mensaje');
-  inputs.forEach(input => {
-    input.addEventListener('focus', () => { 
-      document.querySelector('#btn-oculto-modal').style.display = 'none'; //oculta boton
+  const inputs = document.querySelectorAll('#nombre, #asunto, #email, #mensaje'); // se crea lista de inputs con su id y se le asigna a la variable inputs (DOM)
+  inputs.forEach(input => {  //se agrega un controlador de eventos para el evento focus de cada input
+    input.addEventListener('focus', () => { //si cualquier input obtiene el evento foco
+      document.querySelector('#btn-oculto-modal').style.display = 'none'; //oculta boton con el mensaje
     });
   });
-  // input nombre que la primera letra de cada palabra sea mayuscula jquery
-  $('#nombre').on('input', function () {
+  // input nombre, que la primera letra de cada palabra sea mayuscula jquery
+  $('#nombre').on('input', function () { //Cuando el valor del elemento cambia
     $(this).val(
-      $(this) //pone la primer letra en mayusculas de #nombre o input-nombre
+      $(this) //pone la primer letra en mayusculas de #nombre 
         .val()
-        .replace(/\b\w/g, function (l)  { //reemplaza la misma letra pero con mayusculas
-          return l.toUpperCase();
+        .replace(/\b\w/g, function (p) { //reemplaza la primer letra con mayuscula
+          return p.toUpperCase();
         })
     );
   });
   // validar input nombre que solo se ingresen letras y espacios y cantidad de letras ingresadas
-  let inputNombre = document.querySelector('#nombre'); 
-  let regex = /^[a-zA-ZáéíóúÁÉÍÓÚ]+(\s[a-zA-ZáéíóúÁÉÍÓÚ]+)*$/; // Agregar letras, letras con acentos y un solo espacio entre palabras
-  let minLength = 3;
-  let maxLength = 100;
+  let inputNombre = document.querySelector('#nombre');
+  let expresionNombre = /^[a-zA-ZáéíóúÁÉÍÓÚ]+(\s[a-zA-ZáéíóúÁÉÍÓÚ]+)*$/; // Agregar letras, letras con acentos y un solo espacio entre palabras
+  let minimoLetras = 3;
+  let maximoLetras = 100;
   inputNombre.addEventListener('input', function () {
-    let words = inputNombre.value.trim().split(/\s+/); // La función "trim()" elimina los espacios en blanco al inicio y al final del texto ingresado por el usuario,split(/\s+/) split()" divide el texto en palabras utilizando una expresión, en este caso /\s+/ corta lo que es salto de linea, tabulacion y espacios
-    if (!regex.test(inputNombre.value)) {
+    let palabras = inputNombre.value.trim().split(/\s+/); // La función "trim()" elimina los espacios en blanco al inicio y al final del texto ingresado por el usuario,split(/\s+/) split()" divide el texto en palabras utilizando una expresión, en este caso /\s+/ corta lo que es espacios en blanco
+    if (!expresionNombre.test(inputNombre.value)) {   //se verifica si el valor del elemento cumple con la expresion regular utilizando el método test del objeto expresion
       inputNombre.setCustomValidity('Por favor ingrese solo letras y un espacio entre palabras.');
-    } else if (words.length < 2 || words.length > 5) { // se exije que sea porlomenos  2 palabras en ste caso nombre , apellido
+    } else if (palabras.length < 2 || palabras.length > 5) { // se exije que sea porlomenos  2 palabras en ste caso nombre , apellido
       inputNombre.setCustomValidity('Por favor ingrese nombre y apellido.');
-    } else if (words.some(word => word.length < minLength)) {
-      inputNombre.setCustomValidity(`Cada palabra debe tener al menos ${minLength} caracteres.`);
-    } else if (words.some(word => word.length > maxLength)) {
-      inputNombre.setCustomValidity(`Cada palabra no debe tener más de ${maxLength} caracteres.`);
+    } else if (palabras.some(palabra => palabra.length < minimoLetras)) { // SOME: Se utiliza para verificar si al menos un elemento de la matriz cumple con un criterio especificado
+      inputNombre.setCustomValidity(`Cada palabra debe tener al menos ${minimoLetras} caracteres.`);
+    } else if (palabras.some(palabra => palabra.length > maximoLetras)) {
+      inputNombre.setCustomValidity(`Cada palabra no debe tener más de ${maximoLetras} caracteres.`);
     } else {
-      inputNombre.setCustomValidity('');
+      inputNombre.setCustomValidity('');  //setCustomValidity: es un método de los elementos de formulario. Se usa para establecer un mensaje de validación personalizado.
     }
-  });
+  }); 
   // agrega un controlador de eventos input al campo de asunto y convertirá la primera letra de cada palabra y la primera letra después de un punto en mayúscula
   $('#asunto').on('input', function () {
     $(this).val(
       $(this)
         .val()
-        .replace(/(^|\.\s+)\w/g, function (l) {
-          return l.toUpperCase();
+        .replace(/(^|\.\s+)\w/g, function (p) { //reemplaza con mayuscula, la primer letra del texto y la primer letra  luego de un punto
+          return p.toUpperCase();
         })
     );
   });
   // validar input asunto cantidad de letras ingresadas 
   let inputAsunto = document.querySelector('#asunto');
   inputAsunto.addEventListener('input', function () {
-    if (inputAsunto.value.length < minLength) {
-      inputAsunto.setCustomValidity(`El asunto debe tener al menos ${minLength} caracteres.`);
-    } else if (inputAsunto.value.length > maxLength) {
-      inputAsunto.setCustomValidity(`El asunto no debe tener más de ${maxLength} caracteres.`);
+    if (inputAsunto.value.length < minimoLetras) {
+      inputAsunto.setCustomValidity(`El asunto debe tener al menos ${minimoLetras} caracteres.`);
+    } else if (inputAsunto.value.length > maximoLetras) {
+      inputAsunto.setCustomValidity(`El asunto no debe tener más de ${maximoLetras} caracteres.`);
     } else {
       inputAsunto.setCustomValidity('');
     }
   });
   // validar input email - y consumo de api (reqres.in) solo para enviar un dato y recibir una respuesta 
   let inputEmail = document.querySelector('#email');
-  let regexDos = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;//antes del @ minusculas,mayusculas,numeros,despues del @ podes poner min y may o numros y despues del punto solo letra, numeros,
-  let allowedDomains = [ //array de los @, los dominios
+  let expresionEmail = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;//antes del @ minusculas,mayusculas,numeros,despues del @ podes poner min y may o numros y despues del punto solo letra, numeros,
+  let dominiosAceptados = [ //array de los @, los dominios aceptados por la validacion
     'gmail.com',
-    'hotmail.com',      
+    'hotmail.com',
     'yahoo.com',
     'outlook.com',
     'icloud.com',
@@ -122,13 +122,14 @@ $(document).ready(function () {
   ];
   inputEmail.addEventListener('input', function () {
     inputEmail.setCustomValidity(''); // se establece cuando el mouse este sobre el imput email este vacia, con el setCustomValidity muestra la caja, se le puede pasar un valor, string
-    if (!regexDos.test(inputEmail.value)) { 
-      inputEmail.setCustomValidity('Por favor ingresa un correo electrónico válido.'); // si no pasa esta validacion se muestra en "el pseudo elemento" :placeholder de scss
-      $('#email').removeAttr('title'); // se esta validando constantemente mientra se escribe ej n,mb,fuj, entonces se borra hasta que se vuelva a validar 
+    if (!expresionEmail.test(inputEmail.value)) {
+      inputEmail.setCustomValidity('Por favor ingresa un correo electrónico válido.'); // si no pasa esta validacion se muestra en "el pseudo elemento" :placeholder 
+      $('#email').removeAttr('title'); // se esta validando constantemente mientra se escribe ej n,mb,fuj, entonces se borra hasta que se vuelva a validar y pase esta.
     } else {
-      let domain = inputEmail.value.split('@')[1]; // en este domain se guarda el dominio ej martin@google.com  en  domain quedaria google.com
-      if (!allowedDomains.includes(domain)) { // en este if se pregunta que si el domain no esta incluida dentro de array
-        inputEmail.setCustomValidity(`El dominio ${domain} no está permitido.`);// si no esta incluido en el placeholder se muetra el dominio no esta permitido ej @live.com.ar
+      let dominio = inputEmail.value.split('@')[1]; // en este domain se guarda el dominio ej martin@google.com  en  domain quedaria google.com
+      //split: lo divide en dos partes utilizando el separador "@", se convierte en una matriz,  se accede al segundo elemento de la matriz (índice 1) y se asigna a la variable dominio.
+      if (!dominiosAceptados.includes(dominio)) { // en este if se pregunta que si el dominio no esta incluida dentro del array
+        inputEmail.setCustomValidity(`El dominio ${dominio} no está permitido.`);// si no esta incluido en el placeholder se muetra el dominio no esta permitido ej @live.com.ar
         $('#email').removeAttr('title');
       } else {
         $.ajax({
@@ -142,52 +143,52 @@ $(document).ready(function () {
             console.log(data); // 
             $('#email').attr('title', 'El correo ' + data.email + ' está permitido.'); // Mostrar la respuesta en elemento HTML en el TITLE del Input EMAIL
           },
-          error: function () {// console.error  aprece arriba
-            console.error("Error en la solicitud"); // Mostrar un mensaje de error en caso de fallo
+          error: function () {// console.alert  aprece arriba el mensaje
+            console.alert("Error en la solicitud"); // Mostrar un mensaje de error en caso de fallo
           }
         });
       }
     }
   });
 
-/*  // validar input email - y consumo de api que verifica la existencia del email
-  let inputEmail = document.querySelector('#email');
-  let regexDos = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-  let allowedDomains = [
-    'gmail.com',
-    'hotmail.com',
-    'yahoo.com',
-    'outlook.com',
-    'icloud.com',
-    'aol.com',
-    'msn.com',
-    'live.com',
-    'yandex.com',
-    'protonmail.com'
-  ];
-  let apiKey = 'fdac890a56950b1b05045bb709b8623e4cd8ce30'; // código key de mi cuenta creada en hunter
-  inputEmail.addEventListener('input', function () {
-    if (!regexDos.test(inputEmail.value)) {
-      inputEmail.setCustomValidity('Por favor ingresa un correo electrónico válido.');
-    } else {
-      let domain = inputEmail.value.split('@')[1];
-      if (!allowedDomains.includes(domain)) {
-        inputEmail.setCustomValidity(`El dominio ${domain} no está permitido.`);
+  /*  // validar input email - y consumo de api que verifica la existencia del email
+    let inputEmail = document.querySelector('#email');
+    let expresionEmail = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    let dominiosAceptados = [
+      'gmail.com',
+      'hotmail.com',
+      'yahoo.com',
+      'outlook.com',
+      'icloud.com',
+      'aol.com',
+      'msn.com',
+      'live.com',
+      'yandex.com',
+      'protonmail.com'
+    ];
+    let apiKey = 'fdac890a56950b1b05045bb709b8623e4cd8ce30'; // código key de mi cuenta creada en hunter
+    inputEmail.addEventListener('input', function () {
+      if (!expresionEmail.test(inputEmail.value)) {
+        inputEmail.setCustomValidity('Por favor ingresa un correo electrónico válido.');
       } else {
-        $.ajax({
-          url: `https://api.hunter.io/v2/email-verifier?email=${inputEmail.value}&api_key=${apiKey}`,
-          success: function (data) {
-            // Procesar los datos recibidos de la API
-            if (data.data.status === 'invalid') {
-              inputEmail.setCustomValidity('El correo electrónico no es válido o no existe.');
-            } else {
-              inputEmail.setCustomValidity('');
+        let domain = inputEmail.value.split('@')[1];
+        if (!dominiosAceptados.includes(domain)) {
+          inputEmail.setCustomValidity(`El dominio ${domain} no está permitido.`);
+        } else {
+          $.ajax({
+            url: `https://api.hunter.io/v2/email-verifier?email=${inputEmail.value}&api_key=${apiKey}`,
+            success: function (data) {
+              // Procesar los datos recibidos de la API
+              if (data.data.status === 'invalid') {
+                inputEmail.setCustomValidity('El correo electrónico no es válido o no existe.');
+              } else {
+                inputEmail.setCustomValidity('');
+              }
             }
-          }
-        });
+          });
+        }
       }
-    }
-  }); */
+    }); */
 
 
   // agrega un controlador de eventos input al campo de mensaje y convertirá la primera letra de cada palabra y la primera letra después de un punto en mayúscula
@@ -202,15 +203,16 @@ $(document).ready(function () {
   });
   // validar input mensaje - validacion min y maximo de caracteres
   inputMensaje = document.querySelector('#mensaje');
-  let minLengthDos = 4;
-  let maxLengthDos = 500;
+  let minimoLetrasMensaje = 4;
+  let maximoLetrasMensaje = 500;
   let malasPalabras = ['lrpmqtphdrmp', 'river plate', 'river', 'trabajar el fin de semana', 'culo'];// se evitan las malas palabra, se utiliza un array con las malas palabras para que no ingrese en el mensaje 
   inputMensaje.addEventListener('input', function () {
-    if (inputMensaje.value.length < minLengthDos) {
-      inputMensaje.setCustomValidity(`El mensaje debe tener al menos ${minLengthDos} caracteres.`);
-    } else if (inputMensaje.value.length > maxLengthDos) {
-      inputMensaje.setCustomValidity(`El mensaje no debe tener más de ${maxLengthDos} caracteres.`);
-    } else if (malasPalabras.some(word => inputMensaje.value.toLowerCase().includes(word))) {
+    if (inputMensaje.value.length < minimoLetrasMensaje) {
+      inputMensaje.setCustomValidity(`El mensaje debe tener al menos ${minimoLetrasMensaje} caracteres.`);
+    } else if (inputMensaje.value.length > maximoLetrasMensaje) {
+      inputMensaje.setCustomValidity(`El mensaje no debe tener más de ${maximoLetrasMensaje} caracteres.`);
+    } else if (malasPalabras.some(palabra => inputMensaje.value.toLowerCase().includes(palabra))) { //toLowerCase: convierte la cadena en minuscula.
+      // convierte palabra en una matriz con el texto del input y busca si una de las palabras en esta se encuentra en malasPabras, con el metodo "some"
       inputMensaje.setCustomValidity('El mensaje contiene palabras o frases inapropiadas o prohibidas.');
     } else {
       inputMensaje.setCustomValidity('');
@@ -219,8 +221,9 @@ $(document).ready(function () {
 
   // boton modo oscuro - y modo claro
   const temaOscuro = () => {
-    document.querySelector("body").setAttribute("data-bs-theme", "dark");// se le agrega el atributo data-bs-theme y dark
-    document.querySelector("#boton-modo-oscuro").setAttribute("class", "bi bi-sun");// cambia la luna por la sol
+    document.querySelector("body").setAttribute("data-bs-theme", "dark");// se le agrega el atributo data-bs-theme al body con el valor de dark
+    //el efecto de cambiar el valor del atributo data-bs-theme en el elemento <body> puede afectar a otros elementos de la página
+    document.querySelector("#boton-modo-oscuro").setAttribute("class", "bi bi-sun");// cambia la luna por la sol (icono en el menu)
     localStorage.setItem("tema", "oscuro"); // Guardar el tema en el almacenamiento local
     // Verificar si estamos en la página cotizacion.html
     if (location.pathname.endsWith("cotizacion.html")) { // cuando se activa el modo dark se vambian las imagenes
@@ -263,25 +266,25 @@ $(document).ready(function () {
   }
 
   // agrega evento al boton del menu (cuando es pantalla pequeña) para que se enrrolle el menu cuando toco la pantalla fuera del menu
-  document.addEventListener('click', function (event) {
-    var navbar = document.querySelector('#navbarNav');
-    var isClickInside = navbar.contains(event.target);
-    if (!isClickInside && navbar.classList.contains('show')) {
-      navbar.classList.remove('show');
+  document.addEventListener('click', function (evento) {
+    var barraNavegacion = document.querySelector('#navbarNav');
+    var clickDentro = barraNavegacion.contains(evento.target);
+    if (!clickDentro && barraNavegacion.classList.contains('show')) {
+      barraNavegacion.classList.remove('show');
     }
   });
 
   //agrega un evento de mouseover al elemento li con la clase dropdown. Cuando el mouse está sobre este elemento, se agrega la clase show al menú desplegable para abrirlo.
-  var dropdown = document.querySelector('.dropdown');
-  dropdown.addEventListener('mouseover', function (event) {
-    var dropdownMenu = this.querySelector('.dropdown-menu');
-    dropdownMenu.classList.add('show');
+  var desplegable = document.querySelector('.dropdown');
+  desplegable.addEventListener('mouseover', function () {
+    var menuDesplegable = this.querySelector('.dropdown-menu');
+    menuDesplegable.classList.add('show');
   });
 
   //agrega un evento de mouseout al elemento li con la clase dropdown. Cuando el mouse ya no está sobre este elemento, se elimina la clase show del menú desplegable para cerrarlo.
-  var dropdown = document.querySelector('.dropdown');
-  dropdown.addEventListener('mouseout', function (event) {
-    var dropdownMenu = this.querySelector('.dropdown-menu');
-    dropdownMenu.classList.remove('show');
+  var desplegable = document.querySelector('.dropdown');
+  desplegable.addEventListener('mouseout', function () {
+    var menuDesplegable = this.querySelector('.dropdown-menu');
+    menuDesplegable.classList.remove('show');
   });
 });

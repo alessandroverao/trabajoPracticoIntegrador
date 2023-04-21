@@ -1,175 +1,176 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font: 1em/1.85em 'Open Sans', "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: 1em/1.85em "Open Sans", "Arial", sans-serif;
 }
 
 /*------- banner contacto -------*/
 #imagen-cotizacion-card img {
-    width: 100%;
-    height: 449px;
-    object-fit: cover;
-    overflow: hidden;
-    border-radius: 0;
+  width: 100%;
+  height: 449px;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 0;
 }
 
 #imagen-cotizacion-card {
-    position: relative;
-    margin-top: 44.49px;
-    border: none;
+  position: relative;
+  margin-top: 44.49px;
+  border: none;
 }
 
 /*------- fin banner contacto -------*/
 /*------- contenedor cotizacion -------*/
 #cotizacion {
-    position: relative;
-    margin-top: 75px;
-    padding: 10px;
+  position: relative;
+  margin-top: 75px;
+  padding: 10px;
 }
 
 #cotizacion hr {
-    width: 10%;
-    margin: auto;
-    margin-bottom: 75px;
+  width: 10%;
+  margin: auto;
+  margin-bottom: 75px;
 }
 
 #cotizacion .fs-4 {
-    color: #A1CF2F;
-    margin-bottom: 15px;
-    text-transform: uppercase;
+  color: #a1cf2f;
+  margin-bottom: 15px;
+  text-transform: uppercase;
 }
 
 #cotizacion p .fs-1 {
-    color: black;
+  color: black;
 }
 
 /*------- contenedor cotizacion -------*/
 /*------- form cotizacion -------*/
 .form-cotizacion {
-    border: solid 2px #A1CF2F;
-    border-radius: 5px;
+  border: solid 2px #a1cf2f;
+  border-radius: 5px;
 }
 
 .form-cotizacion .card,
 .form-cotizacion .card-header {
-    border: none;
+  border: none;
 }
 
 .form-cotizacion .img-header-cotizacion {
-    background-image: linear-gradient(to bottom, #A1CF2F, #b8e986);
+  background-image: linear-gradient(to bottom, #a1cf2f, #b8e986);
 
-    /*-   background-image: url('/recursos/imagenes/banner-modal-contacto.jpg');--*/
-    border-radius: 3px 3px 0px 0px;
-    text-transform: uppercase;
+  /*-   background-image: url('/recursos/imagenes/banner-modal-contacto.jpg');--*/
+  border-radius: 3px 3px 0px 0px;
+  text-transform: uppercase;
 }
 
 .form-cotizacion .card-header p {
-    cursor: default;
-    font-weight: 500;
+  cursor: default;
+  font-weight: 500;
 }
 
 .form-cotizacion .form-group .input-group,
 .form-cotizacion .form-group input,
 .form-cotizacion .form-group textarea,
 .form-cotizacion .form-group select {
-    border: 1px solid #A1CF2F;
-    border-radius: 5px;
+  border: 1px solid #a1cf2f;
+  border-radius: 5px;
 }
 
 .form-cotizacion .form-group .input-group,
 .form-cotizacion .form-group .input-group-text {
-    background-color: #A1CF2F;
-    margin-top: 2px;
-    border: none;
+  background-color: #a1cf2f;
+  margin-top: 2px;
+  border: none;
 }
 
 .form-cotizacion .form-group .form-control {
-    height: 60px;
+  height: 60px;
 }
 
 .form-cotizacion .form-group .input-group-text img {
-    transform: scale(1.6);
-    margin-top: 50%;
-    width: 24px;
-    height: 24px;
+  transform: scale(1.6);
+  margin-top: 50%;
+  width: 24px;
+  height: 24px;
 }
 
 .form-cotizacion .form-control:focus {
-    border-color: #A1CF2F;
-    box-shadow: 0 0 0 1px #A1CF2F;
-    outline-color: #A1CF2F;
+  border-color: #a1cf2f;
+  box-shadow: 0 0 0 1px #a1cf2f;
+  outline-color: #a1cf2f;
 }
 
 .form-cotizacion .form-group .input-group:hover {
-    box-shadow: 0 0 0 3px #A1CF2F;
+  box-shadow: 0 0 0 3px #a1cf2f;
 }
 
 .form-cotizacion option {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .form-cotizacion option:checked {
-    background-color: #A1CF2F;
-    font-weight: 600;
+  background-color: #a1cf2f;
+  font-weight: 600;
 }
 
-@keyframes highlight {
-    from {
-        opacity: 1;
-    }
+@keyframes destacar {
+  from {
+    opacity: 1;
+  }
 
-    to {
-        opacity: 0.5;
-    }
+  to {
+    opacity: 0.5;
+  }
 }
 
-#error-message.highlight {
-    animation: highlight 1s ease-in-out;
+#error-mensaje.destacar {
+  animation: destacar 1s ease-in-out;
 }
 
-#error-message {
-    display: none;
-    color: red;
-    font-weight: 600;
+#error-mensaje {
+  display: none;
+  color: red;
+  font-weight: 600;
 }
 
 .input-error {
-    border: 5px solid red !important;
+  border: 5px solid red !important;
 }
 
-.btn-spacing {
-    margin: 5px 0;
+.btn-espacio {
+  margin: 5px 0;
 }
 
 /*------- form cotizacion -------*/
 /*------- imagenes cotizacion -------*/
 .imagen-izquierda,
 .imagen-derecha {
-    position: absolute;
-    top: 200px;
-    height: 150px;
-    width: 150px;
+  position: absolute;
+  top: 200px;
+  height: 150px;
+  width: 150px;
 }
 
 .imagen-izquierda {
-    left: 0;
+  left: 0;
 }
 
 .imagen-derecha {
-    right: 0;
+  right: 0;
 }
 
-@media (max-width: 767px) { /* pantalla menores a  767 manda las 2 imagenes izq y der, arriba del formulario y le da un margen */
-                                /* max-width pantalla menores, min-width pantalla mayores */
-    .imagen-izquierda,
-    .imagen-derecha {
-        position: static; /* posicion estatica */
-        display: block; /* se establece para bloquear la imagen*/
-        max-width: 50%;
-        height: auto; 
-        margin: 20px auto; /* arriba y abajo 20 px y izq y der automatico para centrar*/
-    }
+@media (max-width: 767px) {
+  /* pantalla menores a  767 manda las 2 imagenes izq y der, arriba del formulario y le da un margen */
+  /* max-width pantalla menores, min-width pantalla mayores */
+  .imagen-izquierda,
+  .imagen-derecha {
+    position: static; /* posicion estatica */
+    display: block; /* se establece para bloquear la imagen*/
+    max-width: 50%;
+    height: auto;
+    margin: 20px auto; /* arriba y abajo 20 px y izq y der automatico para centrar*/
+  }
 }
 
 /*------- fin imagenes cotizacion -------*/
