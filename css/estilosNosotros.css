@@ -115,7 +115,7 @@ body {
 
 #texto-largo {
   margin: auto;
-  width: 75%;
+  width: 70%;
   padding: 10px;
   font-size: 16px;
 }
@@ -148,12 +148,12 @@ body {
 /*-------fin nosotros-------*/
 /*-------linea del tiempo-------*/
 /* contenedor de la linea del tiempo */
-.main-timeline-2 {
+.linea-de-tiempo-principal {
   position: relative;
 }
 
 /* La línea verde vertical, centrada en el contedor principal  */
-.main-timeline-2::after {
+.linea-de-tiempo-principal::after {
   content: "";
   position: absolute;
   width: 3px;
@@ -165,14 +165,14 @@ body {
 }
 
 /* Contenedor alrededor del contenido */
-.timeline-2 {
+.linea-de-tiempo {
   position: relative;
   background-color: inherit;
   width: 50%;
 }
 
 /* Los círculos en la línea de tiempo */
-.timeline-2::after {
+.linea-de-tiempo::after {
   content: "";
   position: absolute;
   width: 25px;
@@ -185,19 +185,19 @@ body {
 }
 
 /* Coloca el contenedor a la izquierda */
-.left-2 {
+.linea-de-tiempo-izquierda {
   padding: 0px 40px 20px 0px;
   left: 0;
 }
 
 /* Coloca el contenedor a la derecha */
-.right-2 {
+.linea-de-tiempo-derecha {
   padding: 0px 0px 20px 40px;
   left: 50%;
 }
 
 /* Agregar flechas al contenedor izquierdo (apuntando a la derecha) */
-.left-2::before {
+.linea-de-tiempo-izquierda::before {
   content: " ";
   position: absolute;
   top: 18px;
@@ -209,7 +209,7 @@ body {
 }
 
 /* Agregar flechas al contenedor derecho (apuntando a la izquierda) */
-.right-2::before {
+.linea-de-tiempo-derecha::before {
   content: " ";
   position: absolute;
   top: 18px;
@@ -221,26 +221,26 @@ body {
 }
 
 /* Fijar el círculo para contenedores en el lado derecho */
-.right-2::after {
+.linea-de-tiempo-derecha::after {
   left: -14px;
 }
 
 /* pantallas menos de 1024px de ancho */
 @media screen and (max-width: 1024px) {
   /* Coloca la línea de tiempo a la izquierda */
-  .main-timeline-2::after {
+  .linea-de-tiempo-principal::after {
     left: 31px;
   }
 
   /* Contenedores de ancho completo */
-  .timeline-2 {
+  .linea-de-tiempo {
     width: 100%;
     padding-left: 70px;
     padding-right: 25px;
   }
 
   /* las flechas apunten hacia la izquierda */
-  .timeline-2::before {
+  .linea-de-tiempo::before {
     left: 60px;
     border: medium solid white;
     border-width: 10px 10px 10px 0;
@@ -248,19 +248,22 @@ body {
   }
 
   /* los círculos estén en el mismo lugar */
-  .left-2::after,
-  .right-2::after {
+  .linea-de-tiempo-izquierda::after,
+  .linea-de-tiempo-derecha::after {
     left: 18px;
   }
 
-  .left-2::before {
+  .linea-de-tiempo-izquierda::before {
     right: auto;
   }
 
   /* Hacer que todos los contenedores de la derecha se comporten como los de la izquierda */
-  .right-2 {
+  .linea-de-tiempo-derecha {
     left: 0%;
   }
+}
+.linea-de-tiempo-principal .fw-bold {
+  text-transform: uppercase;
 }
 
 /*-------fin linea del tiempo-------*/
@@ -403,7 +406,9 @@ footer .bi-star-fill {
   font-weight: 600;
 }
 .btn-success:hover,
-.btn-success:active {
+.btn-success:active,
+.btn-success:focus {
+  box-shadow: none;
   border: 2px solid #a1cf2f !important;
   background-color: #a1cf2f !important;
   color: white !important;
@@ -417,8 +422,11 @@ footer .bi-star-fill {
 }
 .btn-secondary:hover,
 .btn-secondary:active,
+.btn-secondary:focus,
 .btn-primary:hover,
-.btn-primary:active {
+.btn-primary:active,
+.btn-primary:focus {
+  box-shadow: none;
   border: 2px solid #4a93fe !important;
   background-color: #4a93fe !important;
   color: white !important;
@@ -430,7 +438,9 @@ footer .bi-star-fill {
   font-weight: 600;
 }
 .btn-danger:hover,
-.btn-danger:active {
+.btn-danger:active,
+.btn-danger:focus {
+  box-shadow: none;
   border: 2px solid red !important;
   background-color: red !important;
   color: white !important;
