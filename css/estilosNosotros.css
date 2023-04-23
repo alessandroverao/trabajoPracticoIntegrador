@@ -322,6 +322,14 @@ body {
 }
 
 /*------- fin dulzura y calidad-------*/
+/*------- carrusel videos -------*/
+#videoCarrusel {
+  pointer-events: none;
+}
+#videoCarrusel iframe:hover {
+  filter: none;
+}
+/*------- fin carrusel videos -------*/
 /*------- boton arriba -------*/
 #btn-ir-arriba {
   position: fixed;
