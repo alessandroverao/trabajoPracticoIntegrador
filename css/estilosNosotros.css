@@ -329,6 +329,63 @@ body {
 #videoCarrusel iframe:hover {
   filter: none;
 }
+
+#enlaces-videos {
+  display: none;
+}
+.miniatura-video {
+  position: relative;
+}
+
+.boton-reproducir {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  color: #fff;
+}
+.boton-reproducir:hover {
+  color: #a1cf2f !important;
+}
+.informacion-video {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 12px;
+}
+.titulo-video {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.duracion-video {
+  float: right;
+}
+@media (max-width: 576px) {
+  .informacion-video {
+    width: 80%;
+    margin-left: 10px;
+    padding: 0;
+  }
+  .miniatura-video,
+  .miniatura-video img {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  #videoCarrusel {
+    display: none;
+  }
+  #enlaces-videos {
+    display: inline;
+  }
+}
 /*------- fin carrusel videos -------*/
 /*------- boton arriba -------*/
 #btn-ir-arriba {
