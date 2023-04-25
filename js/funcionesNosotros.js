@@ -276,15 +276,13 @@ $(document).ready(function () {
 
   //agrega un evento de mouseover al elemento li con la clase dropdown. Cuando el mouse está sobre este elemento, se agrega la clase show al menú desplegable para abrirlo.
   var desplegable = document.querySelector('.dropdown');
+  var menuDesplegable = desplegable.querySelector('.dropdown-menu');
+  
   desplegable.addEventListener('mouseover', function () {
-    var menuDesplegable = this.querySelector('.dropdown-menu');
     menuDesplegable.classList.add('show');
   });
-
-  //agrega un evento de mouseout al elemento li con la clase dropdown. Cuando el mouse ya no está sobre este elemento, se elimina la clase show del menú desplegable para cerrarlo.
-  var desplegable = document.querySelector('.dropdown');
-  desplegable.addEventListener('mouseout', function () {
-    var menuDesplegable = this.querySelector('.dropdown-menu');
+  // si se saca el mouse se cierra el dropdown
+  desplegable.addEventListener('mouseleave', function () {
     menuDesplegable.classList.remove('show');
   });
 });

@@ -38,7 +38,8 @@ $(document).ready(function () {
 
     $("#form-reclamo").submit(function (event) { //se selecciona form-reclamo// 
         event.preventDefault(); //con el event o evento se detiene las funciones normales o predefinidas en este caso para que no se envie el formulario  
-        var values = validate.collectFormValues(event.target); //validate.collectFormValues(event.target) recopila los valores del formulario en un objeto
+        $("#success-message").hide();
+        var values = validate.collectFormValues(event.target); //validate.collectFormValues() recopila los valores del formulario en un objeto y event.target es como el this hace referencia a el mismo que estamos usando en este caso el formulario
         var errors = validate(values, constraints); // validate contiene values "que son los datos del formulario", constraints "son lo que definimos anteriormente, las reglas a aplicar"
         if (errors) { // si se cumple este if se llama a la funcion errors
             showErrors(errors);
@@ -54,13 +55,14 @@ $(document).ready(function () {
             errorElement.addClass("is-invalid");//si el lemento  presenta error entonces se añade la clase "is-invalid"
             var message = errors[key][0]; //si errors tiene la propiedad "nombre-reclamo" con un array que contiene el mensaje "Requerido", entonces errors["nombre-reclamo"][0] será igual a "Requerido", y message tomará ese valor en la línea mencionada.
             message = message.replace(/nombre reclamo|apellido reclamo|email reclamo|telefono reclamo|compra reclamo/gi, ""); //  ("nombre reclamo", "apellido reclamo", etc.) y los reemplaza por una cadena vacía (""), eliminando así los nombres de los campos del mensaje de error
-            errorElement.next().text(message);errorElement.next() //se refiere al elemento HTML que sigue inmediatamente después del elemento errorElement, con el text establece el mensaje de error message
+            errorElement.next().text(message); //se refiere al elemento HTML que sigue inmediatamente después del elemento errorElement, con el text establece el mensaje de error message
         }
     }
 
     function showSuccess() {
         $("input").removeClass("is-invalid").val(""); // elimina todos los "is-invalid" a todos los input 
         $("textarea").val("");//limpia el texarea 
+        $("#success-message").show();
         $("#success-message").text("¡Reclamo enviado con éxito!");//con el text pone un mensaje de "Reclamo enviado con exito"
     }
 
